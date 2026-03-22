@@ -1,26 +1,163 @@
 @import "tailwindcss";
 
+/* ─── Design Tokens ───────────────────────────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Colors */
+  --color-paper:       #f5f0e8;
+  --color-paper-dark:  #ede6d6;
+  --color-ink:         #1a1a1a;
+  --color-ink-muted:   #8c7355;
+  --color-terracota:   #c4683a;
+  --color-lily:        #e8834a;
+  --color-lily-light:  #f2a87a;
+  --color-white:       #ffffff;
+  --color-success:     #5a7c5a;
+  --color-border:      #d4c9b0;
+
+  /* Shadows */
+  --shadow-photo: 2px 2px 8px rgba(26, 26, 26, 0.15);
+  --shadow-card:  1px 1px 4px rgba(26, 26, 26, 0.08);
+
+  /* Border radius — editorial: sharp corners */
+  --radius-none: 0px;
+  --radius-sm:   2px;
+  --radius-md:   4px;
+
+  /* Widths */
+  --max-width-content: 720px;
+  --max-width-hero:    960px;
+  --max-width-site:    1200px;
 }
 
+/* ─── Tailwind Theme Mapping ─────────────────────────────────────── */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-paper:      var(--color-paper);
+  --color-paper-dark: var(--color-paper-dark);
+  --color-ink:        var(--color-ink);
+  --color-ink-muted:  var(--color-ink-muted);
+  --color-terracota:  var(--color-terracota);
+  --color-lily:       var(--color-lily);
+  --color-lily-light: var(--color-lily-light);
+  --color-success:    var(--color-success);
+  --color-border:     var(--color-border);
+  --font-playfair:    var(--font-playfair);
+  --font-im-fell:     var(--font-im-fell);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ─── Base Styles ───────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-im-fell), 'IM Fell English', Georgia, serif;
+  /* Subtle paper noise texture */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+}
+
+/* ─── Typography ─────────────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-playfair), 'Playfair Display', Georgia, serif;
+}
+
+/* ─── Editorial Dividers ─────────────────────────────────────────── */
+.divider-editorial {
+  border-top: 3px solid var(--color-ink);
+  border-bottom: 1px solid var(--color-ink);
+  padding-bottom: 2px;
+}
+
+.divider-accent {
+  border-top: 1px solid var(--color-terracota);
+}
+
+/* ─── Animations ─────────────────────────────────────────────────── */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.state-enter {
+  animation: fadeInUp 0.4s ease-out;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+/* ─── Form Elements ──────────────────────────────────────────────── */
+input[type="text"],
+input[type="search"] {
+  font-family: var(--font-im-fell), 'IM Fell English', Georgia, serif;
+  font-size: 1.125rem;
+  border-radius: var(--radius-none);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-white);
+  color: var(--color-ink);
+  padding: 12px 16px;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="search"]:focus {
+  border-color: var(--color-terracota);
+  box-shadow: 0 0 0 2px rgba(196, 104, 58, 0.15);
+}
+
+/* ─── Buttons ────────────────────────────────────────────────────── */
+.btn-primary {
+  font-family: var(--font-playfair), 'Playfair Display', Georgia, serif;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  border-radius: var(--radius-none);
+  background-color: var(--color-terracota);
+  color: var(--color-white);
+  border: none;
+  padding: 14px 32px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: #b05c32;
+}
+
+.btn-primary:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* ─── Checkbox ───────────────────────────────────────────────────── */
+input[type="checkbox"] {
+  accent-color: var(--color-terracota);
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  flex-shrink: 0;
 }

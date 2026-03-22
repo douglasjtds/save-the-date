@@ -1,0 +1,24 @@
+{
+  "name": "The Wedding Post",
+  "short_name": "RSVP",
+  "description": "Confirme sua presença no casamento de Iara & Douglas — 21/11/2026",
+  "theme_color": "#c4683a",
+  "background_color": "#f5f0e8",
+  "display": "standalone",
+  "orientation": "portrait",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
