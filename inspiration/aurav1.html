@@ -1,0 +1,386 @@
+<html lang="pt-BR"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Wedding Post | RSVP</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    
+    <style>
+        /* Hide scrollbar for clean look */
+        ::-webkit-scrollbar { width: 0px; background: transparent; }
+        
+        /* Smooth state transitions */
+        .fade-enter { opacity: 0; transform: translateY(10px); }
+        .fade-enter-active { opacity: 1; transform: translateY(0); transition: opacity 400ms ease, transform 400ms ease; }
+        .fade-exit { opacity: 1; }
+        .fade-exit-active { opacity: 0; transition: opacity 300ms ease; display: none; }
+
+        /* Loader animation */
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+        .animate-spin-slow { animation: spin 2s linear infinite; }
+    </style>
+</head>
+<body class="text-[#1a1a1a] antialiased selection:bg-[#c4683a] selection:text-[#f5f0e8] min-h-screen relative overflow-x-hidden flex flex-col" style="font-family: 'IM Fell English', serif; background-color: #f5f0e8; background-image: url('data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.85\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\' opacity=\'0.06\'/%3E%3C/svg%3E');">
+
+    <!-- Masthead -->
+    <header class="w-full max-w-5xl mx-auto pt-8 pb-4 px-4 sm:px-8 border-b-[3px] border-double border-[#1a1a1a] mb-8 lg:mb-12 flex flex-col items-center shrink-0">
+        <div class="w-full flex justify-between items-center text-xs uppercase tracking-widest border-b border-[#1a1a1a] pb-2 mb-4 text-[#1a1a1a]/70">
+            <span>Edição Especial</span>
+            <span>Preço: Amor</span>
+        </div>
+        
+        <h1 class="text-4xl sm:text-6xl md:text-7xl font-semibold tracking-tighter uppercase text-center w-full" style="font-family: 'Playfair Display', serif;">
+            The Wedding Post
+        </h1>
+        
+        <div class="w-full flex justify-between items-center text-xs uppercase tracking-widest border-t border-[#1a1a1a] pt-2 mt-4 text-[#1a1a1a]/70">
+            <span>Lagoa Santa, MG</span>
+            <span>Sábado, 21 Nov 2026. Às 11 horas.</span>
+        </div>
+    </header>
+
+    <!-- Main Content Grid -->
+    <main class="w-full max-w-5xl mx-auto px-4 sm:px-8 pb-24 flex-grow flex flex-col justify-center">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+            
+            <!-- Left Column: Editorial Story -->
+            <article class="lg:col-span-7 flex flex-col gap-6 order-2 lg:order-1">
+                <figure class="w-full bg-[#8c7355]/10 p-1 border border-[#1a1a1a]/10 relative">
+                    <!-- Decorative corners -->
+                    <div class="absolute top-0 left-0 w-2 h-2 border-t border-l border-[#1a1a1a]"></div>
+                    <div class="absolute top-0 right-0 w-2 h-2 border-t border-r border-[#1a1a1a]"></div>
+                    <div class="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-[#1a1a1a]"></div>
+                    <div class="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-[#1a1a1a]"></div>
+                    
+                    <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&amp;fit=crop&amp;w=1000&amp;q=80" alt="Iara e Douglas" class="w-full aspect-[4/3] object-cover grayscale mix-blend-multiply opacity-90">
+                </figure>
+
+                <div>
+                    <h2 class="text-3xl sm:text-4xl font-medium tracking-tight leading-[1.1] mb-4 text-[#1a1a1a]" style="font-family: 'Playfair Display', serif;">
+                        Iara &amp; Douglas anunciam data para a cerimônia
+                    </h2>
+                    
+                    <div class="text-base sm:text-lg leading-relaxed flex flex-col gap-4 text-[#1a1a1a]/85 text-justify">
+                        <p>
+                            <span class="text-5xl font-medium float-left mr-3 leading-[0.8] mt-1 text-[#1a1a1a]" style="font-family: 'Playfair Display', serif;">É</span> 
+                            com imensa alegria que convidamos você para testemunhar e celebrar este novo capítulo de nossas vidas. Após anos de histórias compartilhadas, risadas e cumplicidade, decidimos oficializar nossa união cercados pelas pessoas que tornam nossa jornada mais especial.
+                        </p>
+                        <p>
+                            A cerimônia e a recepção ocorrerão no mesmo local, pensadas com carinho para proporcionar uma tarde inesquecível. Haverá boa música, comida afetiva e memórias que guardaremos para sempre. Sua presença é o detalhe mais importante deste dia.
+                        </p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Right Column: Interactive RSVP Widget -->
+            <aside class="lg:col-span-5 w-full flex flex-col order-1 lg:order-2 sticky top-8">
+                
+                <!-- Notice Banner -->
+                <div class="border-b-[3px] border-double border-[#1a1a1a] pb-2 mb-4 text-center">
+                    <span class="text-xs uppercase tracking-widest text-[#c4683a] font-semibold">Aviso Importante</span>
+                </div>
+
+                <!-- App Container -->
+                <div class="bg-white/60 border border-[#1a1a1a] shadow-[6px_6px_0px_0px_#1a1a1a] p-6 sm:p-8 relative min-h-[400px] flex flex-col justify-center transition-all duration-500">
+                    
+                    <!-- Decorative Lilies -->
+                    <iconify-icon icon="solar:flower-linear" class="absolute top-3 left-3 text-[#e8834a] opacity-40 text-2xl"></iconify-icon>
+                    <iconify-icon icon="solar:flower-linear" class="absolute bottom-3 right-3 text-[#e8834a] opacity-40 text-2xl"></iconify-icon>
+
+                    <!-- STATE 1: Search -->
+                    <div id="state-search" class="flex flex-col gap-6 w-full fade-enter fade-enter-active">
+                        <div class="text-center">
+                            <h3 class="text-2xl font-medium tracking-tight mb-1" style="font-family: 'Playfair Display', serif;">Confirme sua presença</h3>
+                            <p class="text-xs text-[#1a1a1a]/60 uppercase tracking-widest">Até 20 de Outubro de 2026</p>
+                        </div>
+                        
+                        <p class="text-sm text-center text-[#1a1a1a]/80 leading-relaxed">
+                            Insira seu nome ou o nome da sua família abaixo para localizar seu convite em nossos registros.
+                        </p>
+
+                        <form id="form-search" class="flex flex-col gap-5 mt-2">
+                            <div class="relative group">
+                                <input type="text" id="input-search" required="" autocomplete="off" class="w-full bg-transparent border-b border-[#1a1a1a]/40 px-0 py-3 text-lg focus:outline-none focus:border-[#c4683a] transition-colors placeholder:text-[#1a1a1a]/30" placeholder="Ex: Família Silva">
+                                <iconify-icon icon="solar:minimalistic-magnifer-linear" class="absolute right-0 top-1/2 -translate-y-1/2 text-[#1a1a1a]/40 text-xl group-focus-within:text-[#c4683a] transition-colors"></iconify-icon>
+                            </div>
+                            
+                            <p id="error-search" class="text-[#c4683a] text-xs hidden">
+                                Nome não encontrado. Tente outro termo ou entre em contato conosco.
+                            </p>
+
+                            <button type="submit" id="btn-search" class="w-full bg-[#1a1a1a] text-[#f5f0e8] py-3.5 px-4 text-xs uppercase tracking-widest hover:bg-[#c4683a] transition-colors duration-300 flex items-center justify-center gap-2 mt-2">
+                                <span>Buscar Convite</span>
+                                <iconify-icon icon="solar:arrow-right-linear" class="text-lg"></iconify-icon>
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- STATE 2: Select Members -->
+                    <div id="state-select" class="hidden flex-col gap-6 w-full">
+                        <button type="button" id="btn-back" class="self-start text-xs text-[#1a1a1a]/60 hover:text-[#c4683a] flex items-center gap-1 transition-colors uppercase tracking-widest">
+                            <iconify-icon icon="solar:arrow-left-linear" class="text-sm"></iconify-icon> Voltar
+                        </button>
+                        
+                        <div class="text-center border-b border-[#1a1a1a]/10 pb-4">
+                            <h3 class="text-xl font-medium tracking-tight mb-1" style="font-family: 'Playfair Display', serif;">Convite Localizado</h3>
+                            <p id="display-family-name" class="text-base text-[#c4683a] italic"></p>
+                        </div>
+                        
+                        <p class="text-sm text-center text-[#1a1a1a]/80">
+                            Por favor, marque apenas os convidados que estarão presentes.
+                        </p>
+
+                        <form id="form-rsvp" class="flex flex-col gap-6">
+                            <div id="members-container" class="flex flex-col gap-3">
+                                <!-- Checkboxes injected via JS -->
+                            </div>
+
+                            <button type="submit" id="btn-confirm" class="w-full bg-[#1a1a1a] text-[#f5f0e8] py-3.5 px-4 text-xs uppercase tracking-widest hover:bg-[#c4683a] transition-colors duration-300 flex items-center justify-center gap-2">
+                                <span id="text-confirm">Confirmar Presença</span>
+                                <iconify-icon id="icon-confirm" icon="solar:check-circle-linear" class="text-lg"></iconify-icon>
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- STATE 3: Success / Feedback -->
+                    <div id="state-feedback" class="hidden flex-col gap-6 w-full items-center text-center py-4">
+                        <div id="feedback-icon-container" class="w-16 h-16 rounded-full bg-[#c4683a]/10 text-[#c4683a] flex items-center justify-center mb-2">
+                            <iconify-icon id="feedback-icon" icon="solar:letter-opened-linear" class="text-3xl"></iconify-icon>
+                        </div>
+                        
+                        <div>
+                            <h3 id="feedback-title" class="text-2xl font-medium tracking-tight mb-2 text-[#1a1a1a]" style="font-family: 'Playfair Display', serif;">
+                                Recebemos sua resposta
+                            </h3>
+                            <p id="feedback-desc" class="text-sm text-[#1a1a1a]/80 leading-relaxed">
+                                Agradecemos por nos avisar. Abaixo está o resumo da sua confirmação.
+                            </p>
+                        </div>
+
+                        <div id="feedback-summary" class="w-full mt-2 p-4 bg-[#8c7355]/5 border border-[#8c7355]/20 text-left text-sm flex flex-col gap-2">
+                            <!-- Summary injected via JS -->
+                        </div>
+
+                        <button type="button" id="btn-reset" class="mt-4 text-xs text-[#1a1a1a]/50 hover:text-[#1a1a1a] underline decoration-[#1a1a1a]/30 underline-offset-4 transition-colors">
+                            Acessar outro convite
+                        </button>
+                    </div>
+
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="w-full py-8 border-t border-[#1a1a1a]/20 text-center text-xs text-[#1a1a1a]/50 uppercase tracking-widest mt-auto">
+        Iara &amp; Douglas © 2026
+    </footer>
+
+    <script>
+        // Simulated Database (Replacing .md parser and Google Sheets API for the prototype)
+        const MOCK_DB = [
+            { id: 'silva', familyName: 'Família Silva', members: ['João Silva', 'Maria Silva', 'Pedrinho Silva'] },
+            { id: 'tertuliano', familyName: 'Família Tertuliano', members: ['Douglas Tertuliano', 'Sra. Tertuliano'] },
+            { id: 'mello', familyName: 'Família Mello', members: ['Iara Mello', 'Sr. Mello', 'Sra. Mello'] },
+            { id: 'amigos-sp', familyName: 'Amigos SP', members: ['Carlos Andrade', 'Ana Beatriz', 'Felipe Santos'] }
+        ];
+
+        // State variables
+        let currentGroup = null;
+
+        // DOM Elements
+        const elStateSearch = document.getElementById('state-search');
+        const elStateSelect = document.getElementById('state-select');
+        const elStateFeedback = document.getElementById('state-feedback');
+        
+        const formSearch = document.getElementById('form-search');
+        const inputSearch = document.getElementById('input-search');
+        const errorSearch = document.getElementById('error-search');
+        const btnSearch = document.getElementById('btn-search');
+        
+        const btnBack = document.getElementById('btn-back');
+        const displayFamilyName = document.getElementById('display-family-name');
+        const membersContainer = document.getElementById('members-container');
+        const formRsvp = document.getElementById('form-rsvp');
+        const btnConfirm = document.getElementById('btn-confirm');
+        const textConfirm = document.getElementById('text-confirm');
+        const iconConfirm = document.getElementById('icon-confirm');
+        
+        const feedbackTitle = document.getElementById('feedback-title');
+        const feedbackDesc = document.getElementById('feedback-desc');
+        const feedbackSummary = document.getElementById('feedback-summary');
+        const feedbackIcon = document.getElementById('feedback-icon');
+        const btnReset = document.getElementById('btn-reset');
+
+        // Helper: Normalize string for fuzzy search
+        const normalize = (str) => str.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
+
+        // Helper: Switch views
+        const showView = (hideEls, showEl) => {
+            hideEls.forEach(el => {
+                el.classList.remove('fade-enter', 'fade-enter-active');
+                el.classList.add('hidden');
+            });
+            showEl.classList.remove('hidden');
+            // Small timeout to allow display:block to apply before animating opacity
+            setTimeout(() => {
+                showEl.classList.add('fade-enter');
+                requestAnimationFrame(() => {
+                    showEl.classList.add('fade-enter-active');
+                });
+            }, 10);
+        };
+
+        // Check initial state from LocalStorage
+        const checkSavedRSVP = () => {
+            const saved = localStorage.getItem('wedding_rsvp');
+            if (saved) {
+                const data = JSON.parse(saved);
+                renderFeedback(data, true);
+                showView([elStateSearch, elStateSelect], elStateFeedback);
+                return true;
+            }
+            return false;
+        };
+
+        // Render Checkboxes
+        const renderMembers = (group) => {
+            membersContainer.innerHTML = '';
+            group.members.forEach((member, index) => {
+                const label = document.createElement('label');
+                label.className = "group relative flex items-center justify-between p-3 border border-[#1a1a1a]/20 cursor-pointer hover:bg-[#8c7355]/5 transition-colors";
+                
+                label.innerHTML = `
+                    <span class="text-base text-[#1a1a1a] select-none">${member}</span>
+                    <div class="relative flex items-center justify-center">
+                        <input type="checkbox" name="member" value="${member}" class="peer sr-only" checked>
+                        <div class="w-5 h-5 border border-[#1a1a1a]/40 peer-checked:bg-[#1a1a1a] peer-checked:border-[#1a1a1a] flex items-center justify-center transition-all bg-white">
+                            <iconify-icon icon="solar:check-read-linear" class="text-white opacity-0 peer-checked:opacity-100 transition-opacity text-sm"></iconify-icon>
+                        </div>
+                    </div>
+                `;
+                membersContainer.appendChild(label);
+            });
+        };
+
+        // Render Feedback Summary
+        const renderFeedback = (data, isAlreadyConfirmed = false) => {
+            feedbackTitle.textContent = isAlreadyConfirmed ? "Convite já confirmado" : "Confirmação Recebida";
+            feedbackDesc.textContent = isAlreadyConfirmed 
+                ? "Consta em nossos registros que você já respondeu a este convite." 
+                : "Agradecemos por nos avisar. Mal podemos esperar para celebrar com você!";
+            
+            feedbackIcon.setAttribute('icon', isAlreadyConfirmed ? 'solar:checklist-minimalistic-linear' : 'solar:letter-opened-linear');
+
+            feedbackSummary.innerHTML = `<div class="font-medium text-[#c4683a] border-b border-[#8c7355]/20 pb-2 mb-2">${data.familyName}</div>`;
+            
+            if (data.attending.length > 0) {
+                feedbackSummary.innerHTML += `<div class="text-xs uppercase tracking-widest text-[#1a1a1a]/50 mt-1 mb-1">Presença Confirmada</div>`;
+                data.attending.forEach(m => {
+                    feedbackSummary.innerHTML += `<div class="flex items-center gap-2"><iconify-icon icon="solar:check-circle-linear" class="text-[#c4683a]"></iconify-icon> ${m}</div>`;
+                });
+            }
+            
+            if (data.notAttending.length > 0) {
+                feedbackSummary.innerHTML += `<div class="text-xs uppercase tracking-widest text-[#1a1a1a]/50 mt-3 mb-1">Não Comparecerão</div>`;
+                data.notAttending.forEach(m => {
+                    feedbackSummary.innerHTML += `<div class="flex items-center gap-2 opacity-60"><iconify-icon icon="solar:close-circle-linear"></iconify-icon> ${m}</div>`;
+                });
+            }
+        };
+
+        // Handle Search
+        formSearch.addEventListener('submit', (e) => {
+            e.preventDefault();
+            errorSearch.classList.add('hidden');
+            const query = normalize(inputSearch.value);
+            
+            if (!query) return;
+
+            // Simulate loading
+            const originalText = btnSearch.innerHTML;
+            btnSearch.innerHTML = `<iconify-icon icon="solar:spinner-linear" class="animate-spin-slow text-lg"></iconify-icon> <span>Buscando...</span>`;
+            btnSearch.disabled = true;
+
+            setTimeout(() => {
+                btnSearch.innerHTML = originalText;
+                btnSearch.disabled = false;
+
+                // Simple Search Logic
+                const found = MOCK_DB.find(g => 
+                    normalize(g.familyName).includes(query) || 
+                    g.members.some(m => normalize(m).includes(query))
+                );
+
+                if (found) {
+                    currentGroup = found;
+                    displayFamilyName.textContent = found.familyName;
+                    renderMembers(found);
+                    showView([elStateSearch, elStateFeedback], elStateSelect);
+                } else {
+                    errorSearch.classList.remove('hidden');
+                }
+            }, 600); // Fake network latency
+        });
+
+        // Handle Back
+        btnBack.addEventListener('click', () => {
+            currentGroup = null;
+            inputSearch.value = '';
+            showView([elStateSelect, elStateFeedback], elStateSearch);
+        });
+
+        // Handle Reset
+        btnReset.addEventListener('click', () => {
+            localStorage.removeItem('wedding_rsvp');
+            currentGroup = null;
+            inputSearch.value = '';
+            showView([elStateSelect, elStateFeedback], elStateSearch);
+        });
+
+        // Handle RSVP Submit
+        formRsvp.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const formData = new FormData(formRsvp);
+            const attendingMembers = formData.getAll('member');
+            
+            const notAttendingMembers = currentGroup.members.filter(m => !attendingMembers.includes(m));
+
+            const payload = {
+                groupId: currentGroup.id,
+                familyName: currentGroup.familyName,
+                attending: attendingMembers,
+                notAttending: notAttendingMembers,
+                timestamp: new Date().toISOString()
+            };
+
+            // Simulate API POST
+            textConfirm.textContent = "Processando...";
+            iconConfirm.setAttribute('icon', 'solar:spinner-linear');
+            iconConfirm.classList.add('animate-spin-slow');
+            btnConfirm.disabled = true;
+
+            setTimeout(() => {
+                // Save to local storage
+                localStorage.setItem('wedding_rsvp', JSON.stringify(payload));
+                
+                // Reset button state
+                textConfirm.textContent = "Confirmar Presença";
+                iconConfirm.setAttribute('icon', 'solar:check-circle-linear');
+                iconConfirm.classList.remove('animate-spin-slow');
+                btnConfirm.disabled = false;
+
+                // Show feedback
+                renderFeedback(payload, false);
+                showView([elStateSearch, elStateSelect], elStateFeedback);
+            }, 800); // Fake network latency
+        });
+
+        // Init
+        checkSavedRSVP();
+
+    </script>
+
+</body></html>

@@ -1,32 +1,44 @@
 export default function StateAlreadyConfirmed({ familyName }: { familyName: string }) {
   return (
     <div className="state-enter text-center flex flex-col items-center gap-4 py-8">
+      {/* Rotated icon container — ink-muted */}
       <div
-        className="text-3xl"
-        style={{ color: 'var(--color-terracota)' }}
+        className="w-16 h-16 flex items-center justify-center rotate-[3deg]"
+        style={{
+          border: '2px solid var(--color-ink-muted)',
+          color: 'var(--color-ink-muted)',
+          backgroundColor: 'var(--color-paper)',
+        }}
         aria-hidden="true"
       >
-        ◆
+        <svg className="-rotate-[3deg]" width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 12L11 14L15 10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M3 7V5C3 3.89543 3.89543 3 5 3H7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+          <path d="M17 3H19C20.1046 3 21 3.89543 21 5V7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+          <path d="M21 17V19C21 20.1046 20.1046 21 19 21H17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+          <path d="M7 21H5C3.89543 21 3 20.1046 3 19V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+        </svg>
       </div>
+
       <h3
         className="text-2xl md:text-3xl font-bold"
         style={{ fontFamily: 'var(--font-playfair), serif', color: 'var(--color-ink)' }}
       >
-        Já recebemos sua confirmação!
+        J&#225; recebemos sua confirma&#231;&#227;o!
       </h3>
       <p
         className="text-lg leading-relaxed max-w-sm"
         style={{ fontFamily: 'var(--font-im-fell), serif', color: 'var(--color-ink)' }}
       >
-        <span className="italic">{familyName}</span>, sua presença já está registrada.<br />
-        Será um prazer tê-los conosco.
+        <span className="italic">{familyName}</span>, sua presen&#231;a j&#225; est&#225; registrada.<br />
+        Ser&#225; um prazer t&#234;-los conosco.
       </p>
       <div className="divider-accent w-24 mx-auto" />
       <p
         className="text-sm italic"
         style={{ fontFamily: 'var(--font-im-fell), serif', color: 'var(--color-ink-muted)' }}
       >
-        21 de Novembro de 2026 · Igreja Matriz N.S. da Saúde, Lagoa Santa
+        21 de Novembro de 2026 &#183; Igreja Matriz N.S. da Sa&#250;de, Lagoa Santa
       </p>
     </div>
   );

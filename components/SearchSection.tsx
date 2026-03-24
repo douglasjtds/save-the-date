@@ -126,50 +126,57 @@ export default function SearchSection({
 
   if (appState === 'deadline_passed') {
     return (
-      <div className="w-full px-6 py-12">
-        <div className="mx-auto" style={{ maxWidth: 'var(--max-width-content)' }}>
-          <StateDeadlinePassed />
-        </div>
+      <div className="w-full py-12">
+        <StateDeadlinePassed />
       </div>
     );
   }
 
   return (
-    <div className="w-full px-6 py-12">
-      <div className="mx-auto" style={{ maxWidth: '560px' }}>
+    <div className="w-full py-8">
+      {/* RSVP card wrapper */}
+      <div
+        className="relative p-6 sm:p-8"
+        style={{
+          backgroundColor: 'var(--color-paper-dark)',
+          border: '1px solid var(--color-border)',
+          boxShadow: 'var(--shadow-card)',
+        }}
+      >
+        {/* Inner decorative border */}
+        <div className="absolute top-2 left-2 right-2 bottom-2 border border-[var(--color-border)] pointer-events-none" />
 
         {/* Search form — always visible unless in a terminal state */}
         {(appState === 'idle' || appState === 'not_found') && (
-          <div className="mb-8">
+          <div className="relative z-10 mb-0">
             <h2
               className="text-xl md:text-2xl font-bold mb-1 text-center"
               style={{ fontFamily: 'var(--font-playfair), serif', color: 'var(--color-ink)' }}
             >
-              Confirme sua presença
+              Confirme sua presen&#231;a
             </h2>
             <p
               className="text-sm italic text-center mb-5"
               style={{ fontFamily: 'var(--font-im-fell), serif', color: 'var(--color-ink-muted)' }}
             >
-              Digite seu nome ou o nome da sua família
+              Digite seu nome ou o nome da sua fam&#237;lia
             </p>
-            <form onSubmit={handleSearch} className="flex gap-0">
+            <form onSubmit={handleSearch} className="flex flex-col gap-5">
               <input
                 ref={inputRef}
                 type="text"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="ex: Família Silva ou João Silva"
+                placeholder="ex: Fam&#237;lia Silva ou Jo&#227;o Silva"
                 autoComplete="off"
-                style={{ borderRight: 'none' }}
+                className="input-editorial"
               />
               <button
                 type="submit"
-                className="btn-primary"
-                style={{ borderRadius: 'var(--radius-none)', flexShrink: 0 }}
+                className="btn-primary w-full"
                 disabled={!query.trim()}
               >
-                Buscar
+                Buscar Registro
               </button>
             </form>
           </div>
@@ -177,47 +184,61 @@ export default function SearchSection({
 
         {/* Checking state */}
         {appState === 'checking' && (
-          <div className="state-enter text-center py-12">
+          <div className="relative z-10 state-enter text-center py-12">
             <span className="spinner" style={{ borderTopColor: 'var(--color-terracota)', borderColor: 'var(--color-border)' }} aria-hidden="true" />
             <p
               className="text-sm italic mt-4"
               style={{ fontFamily: 'var(--font-im-fell), serif', color: 'var(--color-ink-muted)' }}
             >
-              Verificando confirmações…
+              Verificando confirma&#231;&#245;es&#8230;
             </p>
           </div>
         )}
 
         {/* Family card */}
         {(appState === 'found' || appState === 'submitting') && selectedGroup && (
-          <FamilyCard
-            familyName={selectedGroup.familyName}
-            members={members}
-            onToggle={handleToggle}
-            onConfirm={handleConfirm}
-            isSubmitting={appState === 'submitting'}
-          />
+          <div className="relative z-10">
+            <FamilyCard
+              familyName={selectedGroup.familyName}
+              members={members}
+              onToggle={handleToggle}
+              onConfirm={handleConfirm}
+              isSubmitting={appState === 'submitting'}
+            />
+          </div>
         )}
 
         {/* Success */}
         {appState === 'success' && selectedGroup && (
-          <StateSuccess familyName={selectedGroup.familyName} />
+          <div className="relative z-10">
+            <StateSuccess familyName={selectedGroup.familyName} />
+          </div>
         )}
 
         {/* Already confirmed */}
         {appState === 'already_confirmed' && selectedGroup && (
-          <StateAlreadyConfirmed familyName={selectedGroup.familyName} />
+          <div className="relative z-10">
+            <StateAlreadyConfirmed familyName={selectedGroup.familyName} />
+          </div>
         )}
 
         {/* Not found */}
-        {appState === 'not_found' && <StateNotFound />}
+        {appState === 'not_found' && (
+          <div className="relative z-10">
+            <StateNotFound />
+          </div>
+        )}
 
         {/* Network error */}
-        {appState === 'network_error' && <StateNetworkError onRetry={handleRetry} />}
+        {appState === 'network_error' && (
+          <div className="relative z-10">
+            <StateNetworkError onRetry={handleRetry} />
+          </div>
+        )}
 
         {/* Reset link for non-idle states (except deadline_passed) */}
         {['found', 'submitting', 'success', 'already_confirmed', 'network_error'].includes(appState) && (
-          <div className="text-center mt-6">
+          <div className="relative z-10 text-center mt-6">
             <button
               onClick={handleReset}
               className="text-sm italic underline underline-offset-2"

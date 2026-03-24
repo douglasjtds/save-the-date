@@ -1,0 +1,422 @@
+<html lang="pt-BR"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Wedding Post | RSVP</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    
+    <style>
+        /* Tipografia Global */
+        .font-playfair { font-family: 'Playfair Display', serif; }
+        .font-im-fell { font-family: 'IM Fell English', serif; }
+
+        /* Estilos Editoriais Customizados */
+        .divider-editorial {
+            border-top: 3px solid #1a1a1a;
+            border-bottom: 1px solid #1a1a1a;
+            padding-bottom: 2px;
+        }
+        
+        .divider-accent {
+            border-top: 1px solid #c4683a;
+        }
+
+        .photo-editorial {
+            filter: sepia(20%) contrast(110%) grayscale(100%);
+            box-shadow: 2px 2px 8px rgba(26, 26, 26, 0.15);
+            border: 2px solid #1a1a1a;
+            padding: 4px;
+            background: #f5f0e8;
+        }
+
+        .card-editorial {
+            box-shadow: 1px 1px 4px rgba(26, 26, 26, 0.08);
+            border: 1px solid #d4c9b0;
+        }
+
+        /* Ocultar barra de rolagem */
+        ::-webkit-scrollbar { width: 0px; background: transparent; }
+        
+        /* Animações elegantes */
+        .fade-enter { opacity: 0; transform: translateY(12px); }
+        .fade-enter-active { opacity: 1; transform: translateY(0); transition: opacity 400ms ease-out, transform 400ms ease-out; }
+        .fade-exit { opacity: 1; }
+        .fade-exit-active { opacity: 0; transition: opacity 300ms ease; display: none; }
+
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+        .animate-spin-slow { animation: spin 2s linear infinite; }
+    </style>
+</head>
+<body class="text-[#1a1a1a] antialiased selection:bg-[#c4683a] selection:text-[#f5f0e8] min-h-screen relative overflow-x-hidden flex flex-col font-im-fell bg-[#f5f0e8]" style="background-image: 
+        url('data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.85\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\' opacity=\'0.04\'/%3E%3C/svg%3E'),
+        url('data:image/svg+xml,%3Csvg width=\'120\' height=\'120\' viewBox=\'0 0 120 120\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg opacity=\'0.03\'%3E%3Cpath d=\'M60 20 Q75 40 60 60 Q45 40 60 20\' fill=\'%23c4683a\'/%3E%3Cpath d=\'M60 60 Q80 75 60 90 Q40 75 60 60\' fill=\'%236b8c3e\'/%3E%3Cpath d=\'M60 40 Q80 40 75 60 Q60 55 60 40\' fill=\'%236b8c3e\'/%3E%3Cpath d=\'M60 40 Q40 40 45 60 Q60 55 60 40\' fill=\'%236b8c3e\'/%3E%3C/g%3E%3C/svg%3E');">
+
+    <main class="w-full max-w-[1200px] mx-auto px-4 sm:px-8 py-8 sm:py-12 flex-grow flex flex-col">
+        
+        <!-- Grid Desktop (25% / 50% / 25%) e Stack Mobile -->
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-12 items-start">
+            
+            <!-- Coluna Central: Masthead + Conteúdo (50% no Desktop) -->
+            <article class="col-span-1 lg:col-span-2 order-1 lg:order-2 flex flex-col items-center max-w-[720px] mx-auto w-full">
+                
+                <!-- Masthead -->
+                <header class="w-full text-center divider-editorial mb-8">
+                    <div class="flex justify-between items-center w-full uppercase text-xs font-playfair font-bold tracking-widest text-[#8c7355] border-b border-[#1a1a1a] pb-2 mb-3 mt-1">
+                        <span>Edição Especial</span>
+                        <span>Preço: Amor</span>
+                    </div>
+                    
+                    <h1 class="font-playfair font-black text-5xl sm:text-6xl md:text-7xl uppercase tracking-widest text-[#1a1a1a] my-4 leading-[0.9] text-center w-full">
+                        The Wedding<br>Post
+                    </h1>
+                    
+                    <div class="flex justify-between items-center w-full uppercase text-xs font-playfair font-bold tracking-widest text-[#8c7355] border-t border-[#1a1a1a] pt-2 mt-3 mb-1">
+                        <span>Lagoa Santa, SP</span>
+                        <span>Sábado, 21 Nov 2026</span>
+                    </div>
+                </header>
+
+                <div class="text-center mb-6">
+                    <span class="inline-block border border-[#1a1a1a] px-3 py-1 text-xs uppercase font-playfair font-bold tracking-widest mb-6 bg-[#1a1a1a] text-[#f5f0e8] rounded-[2px]">
+                        Save The Date
+                    </span>
+                    <h2 class="font-playfair font-bold text-3xl sm:text-4xl text-[#1a1a1a] leading-tight mb-6">
+                        Iara &amp; Douglas anunciam data para a cerimônia
+                    </h2>
+                </div>
+
+                <div class="text-base sm:text-lg leading-relaxed text-[#1a1a1a] text-justify font-im-fell space-y-4 mb-8">
+                    <p>
+                        <span class="float-left text-6xl font-playfair font-black leading-[0.75] mr-3 mt-1 text-[#1a1a1a]">É</span> 
+                        com imensa alegria que convidamos você para testemunhar e celebrar este novo capítulo de nossas vidas. Após anos de histórias compartilhadas, risadas e cumplicidade, decidimos oficializar nossa união cercados pelas pessoas que tornam nossa jornada autêntica e inesquecível.
+                    </p>
+                    <p>
+                        A cerimônia e a recepção ocorrerão no mesmo local, pensadas com esmero para proporcionar uma tarde memorável. Haverá boa música, comida afetiva e memórias que guardaremos para a posteridade.
+                    </p>
+                </div>
+
+                <!-- Ornamento Floral Decorativo -->
+                <div class="text-[#e8834a] text-2xl mb-8 opacity-80 flex gap-4 items-center justify-center w-full">
+                    <span class="divider-accent flex-grow max-w-[60px]"></span>
+                    ❧
+                    <span class="divider-accent flex-grow max-w-[60px]"></span>
+                </div>
+
+                <!-- Formulário de RSVP Editorial -->
+                <aside id="rsvp-widget" class="w-full bg-[#ede6d6] card-editorial p-6 sm:p-8 relative min-h-[400px] flex flex-col justify-center transition-all duration-500 rounded-none mb-8">
+                    
+                    <!-- Linhas decorativas internas -->
+                    <div class="absolute top-2 left-2 right-2 bottom-2 border border-[#d4c9b0] pointer-events-none"></div>
+
+                    <!-- ESTADO 1: Busca -->
+                    <div id="state-search" class="flex flex-col gap-6 w-full fade-enter fade-enter-active relative z-10 px-2">
+                        <div class="text-center">
+                            <h3 class="text-2xl font-playfair font-bold tracking-wide mb-2">Confirme sua presença</h3>
+                            <p class="text-xs text-[#8c7355] uppercase tracking-widest font-playfair font-bold italic">
+                                — Até 20 de Outubro de 2026 —
+                            </p>
+                        </div>
+                        
+                        <p class="text-base text-center leading-relaxed font-im-fell text-[#1a1a1a]">
+                            Insira seu nome ou o de sua família abaixo para localizar seu convite em nossos registros impressos.
+                        </p>
+
+                        <form id="form-search" class="flex flex-col gap-5 mt-2">
+                            <div class="relative group">
+                                <input type="text" id="input-search" required="" autocomplete="off" class="w-full bg-transparent border-b border-[#1a1a1a] px-0 py-3 text-lg focus:outline-none focus:border-[#c4683a] transition-colors placeholder:text-[#1a1a1a]/40 font-im-fell rounded-none" placeholder="Ex: Família Silva">
+                                <iconify-icon icon="solar:minimalistic-magnifer-linear" class="absolute right-0 top-1/2 -translate-y-1/2 text-[#1a1a1a]/60 text-xl group-focus-within:text-[#c4683a] transition-colors"></iconify-icon>
+                            </div>
+                            
+                            <p id="error-search" class="text-[#c4683a] text-sm hidden font-im-fell italic text-center">
+                                Nome não encontrado. Verifique a grafia ou entre em contato.
+                            </p>
+
+                            <button type="submit" id="btn-search" class="w-full bg-[#c4683a] text-white py-4 px-4 text-sm font-playfair font-bold uppercase tracking-widest hover:bg-[#a6562f] transition-colors duration-300 flex items-center justify-center gap-2 mt-4 rounded-none shadow-none">
+                                <span>Buscar Registro</span>
+                                <iconify-icon icon="solar:arrow-right-linear" class="text-lg"></iconify-icon>
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- ESTADO 2: Seleção -->
+                    <div id="state-select" class="hidden flex-col gap-6 w-full relative z-10 px-2">
+                        <button type="button" id="btn-back" class="self-start text-xs font-playfair font-bold text-[#8c7355] hover:text-[#c4683a] flex items-center gap-1 transition-colors uppercase tracking-widest">
+                            <iconify-icon icon="solar:arrow-left-linear" class="text-sm"></iconify-icon> Voltar
+                        </button>
+                        
+                        <div class="text-center border-b border-[#d4c9b0] pb-4">
+                            <h3 class="text-xl font-playfair font-bold tracking-wide mb-1">Registro Localizado</h3>
+                            <p id="display-family-name" class="text-lg text-[#c4683a] font-im-fell italic"></p>
+                        </div>
+                        
+                        <p class="text-base text-center leading-relaxed font-im-fell">
+                            Assinale com precisão os convidados que honrarão este evento com sua presença.
+                        </p>
+
+                        <form id="form-rsvp" class="flex flex-col gap-6">
+                            <div id="members-container" class="flex flex-col gap-0 border border-[#d4c9b0]">
+                                <!-- Checkboxes injetados via JS -->
+                            </div>
+
+                            <button type="submit" id="btn-confirm" class="w-full bg-[#c4683a] text-white py-4 px-4 text-sm font-playfair font-bold uppercase tracking-widest hover:bg-[#a6562f] transition-colors duration-300 flex items-center justify-center gap-2 rounded-none">
+                                <span id="text-confirm">Confirmar Presença</span>
+                                <iconify-icon id="icon-confirm" icon="solar:pen-new-square-linear" class="text-lg"></iconify-icon>
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- ESTADO 3: Feedback -->
+                    <div id="state-feedback" class="hidden flex-col gap-6 w-full items-center text-center py-4 relative z-10 px-2">
+                        <div class="w-16 h-16 rounded-none border-2 border-[#5a7c5a] text-[#5a7c5a] flex items-center justify-center mb-2 bg-[#f5f0e8] rotate-3">
+                            <iconify-icon id="feedback-icon" icon="solar:letter-opened-linear" class="text-3xl -rotate-3"></iconify-icon>
+                        </div>
+                        
+                        <div>
+                            <h3 id="feedback-title" class="text-2xl font-playfair font-bold tracking-wide mb-2 text-[#5a7c5a]">
+                                Confirmação Registrada
+                            </h3>
+                            <p id="feedback-desc" class="text-base text-[#1a1a1a] leading-relaxed font-im-fell">
+                                Sua resposta foi catalogada em nossos registros oficiais.
+                            </p>
+                        </div>
+
+                        <div id="feedback-summary" class="w-full mt-2 p-5 bg-[#f5f0e8] border border-[#d4c9b0] text-left text-base flex flex-col gap-2 font-im-fell">
+                            <!-- Resumo injetado via JS -->
+                        </div>
+
+                        <button type="button" id="btn-reset" class="mt-4 text-xs font-playfair font-bold text-[#8c7355] hover:text-[#1a1a1a] underline decoration-[#d4c9b0] underline-offset-4 transition-colors uppercase tracking-widest">
+                            Consultar outro registro
+                        </button>
+                    </div>
+
+                </aside>
+            </article>
+
+            <!-- Coluna Esquerda: Foto 1 (25% no Desktop, aparece em cima no mobile) -->
+            <aside class="col-span-1 order-2 lg:order-1 flex flex-col items-center">
+                <figure class="w-full relative photo-editorial rotate-[-1deg] hover:rotate-0 transition-transform duration-500">
+                    <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&amp;fit=crop&amp;w=600&amp;q=80" alt="Iara e Douglas" class="w-full aspect-[3/4] object-cover mix-blend-multiply">
+                    <figcaption class="text-center font-im-fell italic text-sm mt-3 mb-1 text-[#8c7355]">
+                        Retrato dos Noivos, 2024
+                    </figcaption>
+                </figure>
+            </aside>
+
+            <!-- Coluna Direita: Foto 2 (25% no Desktop, aparece embaixo no mobile) -->
+            <aside class="col-span-1 order-3 lg:order-3 flex flex-col items-center lg:mt-32">
+                <figure class="w-full relative photo-editorial rotate-[2deg] hover:rotate-0 transition-transform duration-500">
+                    <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&amp;fit=crop&amp;w=600&amp;q=80" alt="Detalhes do Casamento" class="w-full aspect-[3/4] object-cover mix-blend-multiply">
+                    <figcaption class="text-center font-im-fell italic text-sm mt-3 mb-1 text-[#8c7355]">
+                        Matriz N. Sra. da Saúde
+                    </figcaption>
+                </figure>
+            </aside>
+
+        </div>
+    </main>
+
+    <footer class="w-full py-8 border-t border-[#d4c9b0] text-center mt-auto bg-[#ede6d6]">
+        <p class="font-playfair font-bold text-xs uppercase tracking-widest text-[#8c7355]">
+            Iara Mello &amp; Douglas Tertuliano ✦ MMXXVI
+        </p>
+    </footer>
+
+    <script>
+        // MOCK DB (Substituir pela integração Google Sheets)
+        const MOCK_DB = [
+            { id: 'silva', familyName: 'Família Silva', members: ['João Silva', 'Maria Silva', 'Pedrinho Silva'] },
+            { id: 'tertuliano', familyName: 'Família Tertuliano', members: ['Douglas Tertuliano', 'Sra. Tertuliano'] },
+            { id: 'mello', familyName: 'Família Mello', members: ['Iara Mello', 'Sr. Mello', 'Sra. Mello'] },
+            { id: 'amigos-sp', familyName: 'Amigos SP', members: ['Carlos Andrade', 'Ana Beatriz', 'Felipe Santos'] }
+        ];
+
+        let currentGroup = null;
+
+        const elStateSearch = document.getElementById('state-search');
+        const elStateSelect = document.getElementById('state-select');
+        const elStateFeedback = document.getElementById('state-feedback');
+        
+        const formSearch = document.getElementById('form-search');
+        const inputSearch = document.getElementById('input-search');
+        const errorSearch = document.getElementById('error-search');
+        const btnSearch = document.getElementById('btn-search');
+        
+        const btnBack = document.getElementById('btn-back');
+        const displayFamilyName = document.getElementById('display-family-name');
+        const membersContainer = document.getElementById('members-container');
+        const formRsvp = document.getElementById('form-rsvp');
+        const btnConfirm = document.getElementById('btn-confirm');
+        const textConfirm = document.getElementById('text-confirm');
+        const iconConfirm = document.getElementById('icon-confirm');
+        
+        const feedbackTitle = document.getElementById('feedback-title');
+        const feedbackDesc = document.getElementById('feedback-desc');
+        const feedbackSummary = document.getElementById('feedback-summary');
+        const feedbackIcon = document.getElementById('feedback-icon');
+        const btnReset = document.getElementById('btn-reset');
+
+        const normalize = (str) => str.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
+
+        const showView = (hideEls, showEl) => {
+            hideEls.forEach(el => {
+                el.classList.remove('fade-enter', 'fade-enter-active');
+                el.classList.add('hidden');
+            });
+            showEl.classList.remove('hidden');
+            setTimeout(() => {
+                showEl.classList.add('fade-enter');
+                requestAnimationFrame(() => {
+                    showEl.classList.add('fade-enter-active');
+                });
+            }, 10);
+        };
+
+        const checkSavedRSVP = () => {
+            const saved = localStorage.getItem('wedding_rsvp_editorial');
+            if (saved) {
+                const data = JSON.parse(saved);
+                renderFeedback(data, true);
+                showView([elStateSearch, elStateSelect], elStateFeedback);
+                return true;
+            }
+            return false;
+        };
+
+        const renderMembers = (group) => {
+            membersContainer.innerHTML = '';
+            group.members.forEach((member, index) => {
+                const label = document.createElement('label');
+                const borderClass = index < group.members.length - 1 ? 'border-b border-[#d4c9b0]' : '';
+                label.className = `group relative flex items-center justify-between p-4 cursor-pointer hover:bg-[#f5f0e8] transition-colors ${borderClass} bg-[#ede6d6]`;
+                
+                label.innerHTML = `
+                    <span class="text-lg text-[#1a1a1a] select-none flex items-center gap-3">
+                        <span class="text-[#8c7355] text-xs">◆</span> ${member}
+                    </span>
+                    <div class="relative flex items-center justify-center">
+                        <input type="checkbox" name="member" value="${member}" class="peer sr-only" checked>
+                        <div class="w-6 h-6 border-2 border-[#1a1a1a] peer-checked:bg-[#c4683a] peer-checked:border-[#c4683a] flex items-center justify-center transition-all bg-transparent rounded-none">
+                            <iconify-icon icon="solar:check-read-linear" class="text-white opacity-0 peer-checked:opacity-100 transition-opacity text-base"></iconify-icon>
+                        </div>
+                    </div>
+                `;
+                membersContainer.appendChild(label);
+            });
+        };
+
+        const renderFeedback = (data, isAlreadyConfirmed = false) => {
+            feedbackTitle.textContent = isAlreadyConfirmed ? "Registro Existente" : "Confirmação Registrada";
+            feedbackDesc.textContent = isAlreadyConfirmed 
+                ? "Consta em nossos arquivos que sua resposta já foi processada anteriormente." 
+                : "Sua resposta foi catalogada. Será uma honra celebrar este dia com você.";
+            
+            feedbackTitle.className = isAlreadyConfirmed 
+                ? "text-2xl font-playfair font-bold tracking-wide mb-2 text-[#8c7355]" 
+                : "text-2xl font-playfair font-bold tracking-wide mb-2 text-[#5a7c5a]";
+                
+            feedbackIcon.parentNode.className = isAlreadyConfirmed
+                ? "w-16 h-16 rounded-none border-2 border-[#8c7355] text-[#8c7355] flex items-center justify-center mb-2 bg-[#f5f0e8] rotate-3"
+                : "w-16 h-16 rounded-none border-2 border-[#5a7c5a] text-[#5a7c5a] flex items-center justify-center mb-2 bg-[#f5f0e8] rotate-3";
+
+            feedbackIcon.setAttribute('icon', isAlreadyConfirmed ? 'solar:archive-check-linear' : 'solar:letter-opened-linear');
+
+            feedbackSummary.innerHTML = `<div class="font-playfair font-bold text-lg text-[#1a1a1a] border-b border-[#d4c9b0] pb-2 mb-3">${data.familyName}</div>`;
+            
+            if (data.attending.length > 0) {
+                feedbackSummary.innerHTML += `<div class="text-xs uppercase tracking-widest text-[#5a7c5a] font-playfair font-bold mb-2">Presença Confirmada</div>`;
+                data.attending.forEach(m => {
+                    feedbackSummary.innerHTML += `<div class="flex items-center gap-2 mb-1"><span class="text-[#5a7c5a] text-xs">◆</span> ${m}</div>`;
+                });
+            }
+            
+            if (data.notAttending.length > 0) {
+                feedbackSummary.innerHTML += `<div class="text-xs uppercase tracking-widest text-[#8c7355] font-playfair font-bold mt-4 mb-2">Não Comparecerão</div>`;
+                data.notAttending.forEach(m => {
+                    feedbackSummary.innerHTML += `<div class="flex items-center gap-2 opacity-60 mb-1"><span class="text-xs">—</span> ${m}</div>`;
+                });
+            }
+        };
+
+        formSearch.addEventListener('submit', (e) => {
+            e.preventDefault();
+            errorSearch.classList.add('hidden');
+            const query = normalize(inputSearch.value);
+            if (!query) return;
+
+            const originalText = btnSearch.innerHTML;
+            btnSearch.innerHTML = `<iconify-icon icon="solar:spinner-linear" class="animate-spin-slow text-lg"></iconify-icon> <span>Buscando...</span>`;
+            btnSearch.disabled = true;
+
+            setTimeout(() => {
+                btnSearch.innerHTML = originalText;
+                btnSearch.disabled = false;
+
+                const found = MOCK_DB.find(g => 
+                    normalize(g.familyName).includes(query) || 
+                    g.members.some(m => normalize(m).includes(query))
+                );
+
+                if (found) {
+                    currentGroup = found;
+                    displayFamilyName.textContent = found.familyName;
+                    renderMembers(found);
+                    showView([elStateSearch, elStateFeedback], elStateSelect);
+                } else {
+                    errorSearch.classList.remove('hidden');
+                }
+            }, 800);
+        });
+
+        btnBack.addEventListener('click', () => {
+            currentGroup = null;
+            inputSearch.value = '';
+            showView([elStateSelect, elStateFeedback], elStateSearch);
+        });
+
+        btnReset.addEventListener('click', () => {
+            localStorage.removeItem('wedding_rsvp_editorial');
+            currentGroup = null;
+            inputSearch.value = '';
+            showView([elStateSelect, elStateFeedback], elStateSearch);
+        });
+
+        formRsvp.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const formData = new FormData(formRsvp);
+            const attendingMembers = formData.getAll('member');
+            const notAttendingMembers = currentGroup.members.filter(m => !attendingMembers.includes(m));
+
+            const payload = {
+                groupId: currentGroup.id,
+                familyName: currentGroup.familyName,
+                attending: attendingMembers,
+                notAttending: notAttendingMembers,
+                timestamp: new Date().toISOString()
+            };
+
+            textConfirm.textContent = "Catalogando...";
+            iconConfirm.setAttribute('icon', 'solar:spinner-linear');
+            iconConfirm.classList.add('animate-spin-slow');
+            btnConfirm.disabled = true;
+
+            setTimeout(() => {
+                localStorage.setItem('wedding_rsvp_editorial', JSON.stringify(payload));
+                
+                textConfirm.textContent = "Confirmar Presença";
+                iconConfirm.setAttribute('icon', 'solar:pen-new-square-linear');
+                iconConfirm.classList.remove('animate-spin-slow');
+                btnConfirm.disabled = false;
+
+                renderFeedback(payload, false);
+                showView([elStateSearch, elStateSelect], elStateFeedback);
+            }, 1000);
+        });
+
+        checkSavedRSVP();
+
+    </script>
+
+</body></html>
