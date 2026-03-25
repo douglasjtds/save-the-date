@@ -27,7 +27,7 @@
 - Felipe
 
 ## Família Sandra
-- Sandra
+- Sandra Tertuliano
 - João Carlos
 - Carla
 - Eduardo
