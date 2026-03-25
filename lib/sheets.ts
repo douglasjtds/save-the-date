@@ -27,24 +27,17 @@ export async function checkIfConfirmed(groupId: string): Promise<boolean> {
   }
 }
 
-/** Submit an RSVP confirmation to the spreadsheet */
+/** Submit an RSVP confirmation via the Next.js proxy route */
 export async function submitRSVP(
   payload: RSVPPayload
 ): Promise<{ success: boolean; error?: string }> {
-  if (!APPS_SCRIPT_URL) {
-    // No URL configured — simulate success in development
-    console.warn('[sheets] NEXT_PUBLIC_APPS_SCRIPT_URL not set. Simulating success.');
-    return { success: true };
-  }
   try {
-    const res = await fetch(APPS_SCRIPT_URL, {
+    const res = await fetch('/api/rsvp', {
       method: 'POST',
-      // Apps Script requires text/plain for cross-origin POST — do NOT use application/json
-      headers: { 'Content-Type': 'text/plain' },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),
     });
-    const data = await res.json();
-    return data;
+    return await res.json();
   } catch {
     return { success: false, error: 'network_error' };
   }

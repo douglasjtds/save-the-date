@@ -142,7 +142,7 @@ export default function SearchSection({
         style={{ boxShadow: 'var(--shadow-card)' }}
       >
         {/* Inner decorative border */}
-        <div className="absolute top-2 left-2 right-2 bottom-2 border border-[var(--color-border)] pointer-events-none" />
+        <div className="absolute top-2 left-2 right-2 bottom-2 border border-border pointer-events-none" />
 
         {/* Search form — always visible unless in a terminal state */}
         {(appState === 'idle' || appState === 'not_found') && (
@@ -151,7 +151,7 @@ export default function SearchSection({
               Confirme sua presença
             </h2>
             <p className="text-sm italic text-center mb-5 font-im-fell text-ink-muted">
-              Digite seu nome ou o nome da sua família
+              Digite o seu nome ou o nome da sua família
             </p>
             <form onSubmit={handleSearch} className="flex flex-col gap-5">
               <input
