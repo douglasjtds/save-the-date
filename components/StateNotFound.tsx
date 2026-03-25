@@ -4,33 +4,22 @@ const WHATSAPP_URL =
 export default function StateNotFound() {
   return (
     <div className="state-enter text-center flex flex-col items-center gap-4 py-8">
-      <div
-        className="text-2xl"
-        style={{ color: 'var(--color-ink-muted)' }}
-        aria-hidden="true"
-      >
+      <div className="text-2xl text-ink-muted" aria-hidden="true">
         ❧
       </div>
-      <h3
-        className="text-2xl font-bold"
-        style={{ fontFamily: 'var(--font-playfair), serif', color: 'var(--color-ink)' }}
-      >
+      <h3 className="text-2xl font-bold font-playfair text-ink">
         Não encontramos seu nome
       </h3>
-      <p
-        className="text-base leading-relaxed max-w-sm"
-        style={{ fontFamily: 'var(--font-im-fell), serif', color: 'var(--color-ink)' }}
-      >
+      <p className="text-base leading-relaxed max-w-sm font-im-fell text-ink">
         Tente buscar pelo primeiro nome, sobrenome, ou pelo nome da família
-        (ex: &ldquo;Família Silva&rdquo; ou apenas &ldquo;Silva&rdquo;).
+        (ex: {'\u201C'}Família Silva{'\u201D'} ou apenas {'\u201C'}Silva{'\u201D'}).
       </p>
       <div className="divider-accent w-24 mx-auto" />
       <a
         href={WHATSAPP_URL}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-sm underline underline-offset-2 italic"
-        style={{ fontFamily: 'var(--font-im-fell), serif', color: 'var(--color-terracota)' }}
+        className="text-sm underline underline-offset-2 italic font-im-fell text-terracota"
       >
         Se ficou alguma dúvida sobre como confirmar sua presença, fale comigo aqui
       </a>

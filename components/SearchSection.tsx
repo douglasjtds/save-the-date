@@ -25,13 +25,15 @@ type AppState =
 
 type Member = { name: string; attending: boolean };
 
+interface SearchSectionProps {
+  guests: GuestGroup[];
+  deadline: string | null;
+}
+
 export default function SearchSection({
   guests,
   deadline,
-}: {
-  guests: GuestGroup[];
-  deadline: string | null;
-}) {
+}: SearchSectionProps) {
   const [appState, setAppState] = useState<AppState>('idle');
   const [query, setQuery] = useState('');
   const [selectedGroup, setSelectedGroup] = useState<GuestGroup | null>(null);
@@ -136,12 +138,8 @@ export default function SearchSection({
     <div className="w-full py-8">
       {/* RSVP card wrapper */}
       <div
-        className="relative p-6 sm:p-8"
-        style={{
-          backgroundColor: 'var(--color-paper-dark)',
-          border: '1px solid var(--color-border)',
-          boxShadow: 'var(--shadow-card)',
-        }}
+        className="relative p-6 sm:p-8 bg-paper-dark border border-border"
+        style={{ boxShadow: 'var(--shadow-card)' }}
       >
         {/* Inner decorative border */}
         <div className="absolute top-2 left-2 right-2 bottom-2 border border-[var(--color-border)] pointer-events-none" />
@@ -149,17 +147,11 @@ export default function SearchSection({
         {/* Search form — always visible unless in a terminal state */}
         {(appState === 'idle' || appState === 'not_found') && (
           <div className="relative z-10 mb-0">
-            <h2
-              className="text-xl md:text-2xl font-bold mb-1 text-center"
-              style={{ fontFamily: 'var(--font-playfair), serif', color: 'var(--color-ink)' }}
-            >
-              Confirme sua presen&#231;a
+            <h2 className="text-xl md:text-2xl font-bold mb-1 text-center font-playfair text-ink">
+              Confirme sua presença
             </h2>
-            <p
-              className="text-sm italic text-center mb-5"
-              style={{ fontFamily: 'var(--font-im-fell), serif', color: 'var(--color-ink-muted)' }}
-            >
-              Digite seu nome ou o nome da sua fam&#237;lia
+            <p className="text-sm italic text-center mb-5 font-im-fell text-ink-muted">
+              Digite seu nome ou o nome da sua família
             </p>
             <form onSubmit={handleSearch} className="flex flex-col gap-5">
               <input
@@ -167,7 +159,7 @@ export default function SearchSection({
                 type="text"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="ex: Fam&#237;lia Silva ou Jo&#227;o Silva"
+                placeholder="ex: Família Silva ou João Silva"
                 autoComplete="off"
                 className="input-editorial"
               />
@@ -186,11 +178,8 @@ export default function SearchSection({
         {appState === 'checking' && (
           <div className="relative z-10 state-enter text-center py-12">
             <span className="spinner" style={{ borderTopColor: 'var(--color-terracota)', borderColor: 'var(--color-border)' }} aria-hidden="true" />
-            <p
-              className="text-sm italic mt-4"
-              style={{ fontFamily: 'var(--font-im-fell), serif', color: 'var(--color-ink-muted)' }}
-            >
-              Verificando confirma&#231;&#245;es&#8230;
+            <p className="text-sm italic mt-4 font-im-fell text-ink-muted">
+              Verificando confirmações…
             </p>
           </div>
         )}
@@ -241,8 +230,7 @@ export default function SearchSection({
           <div className="relative z-10 text-center mt-6">
             <button
               onClick={handleReset}
-              className="text-sm italic underline underline-offset-2"
-              style={{ fontFamily: 'var(--font-im-fell), serif', color: 'var(--color-ink-muted)', background: 'none', border: 'none', cursor: 'pointer' }}
+              className="text-sm italic underline underline-offset-2 font-im-fell text-ink-muted bg-transparent border-none cursor-pointer"
             >
               Buscar outro nome
             </button>

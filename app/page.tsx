@@ -39,10 +39,7 @@ export default function Home() {
                   sizes="280px"
                 />
               </div>
-              <figcaption
-                className="text-center text-sm italic mt-3 mb-1"
-                style={{ fontFamily: 'var(--font-im-fell), serif', color: 'var(--color-ink-muted)' }}
-              >
+              <figcaption className="text-center text-sm italic mt-3 mb-1 font-im-fell text-ink-muted">
                 Retrato dos Noivos, 2024
               </figcaption>
             </figure>
@@ -65,11 +62,8 @@ export default function Home() {
                   sizes="280px"
                 />
               </div>
-              <figcaption
-                className="text-center text-sm italic mt-3 mb-1"
-                style={{ fontFamily: 'var(--font-im-fell), serif', color: 'var(--color-ink-muted)' }}
-              >
-                Igreja Matriz N. Sra. da Sa&#250;de
+              <figcaption className="text-center text-sm italic mt-3 mb-1 font-im-fell text-ink-muted">
+                Igreja Matriz N. Sra. da Saúde
               </figcaption>
             </figure>
           </article>
@@ -86,10 +80,7 @@ export default function Home() {
                   sizes="(min-width: 1024px) 25vw, 0px"
                 />
               </div>
-              <figcaption
-                className="text-center text-sm italic mt-3 mb-1"
-                style={{ fontFamily: 'var(--font-im-fell), serif', color: 'var(--color-ink-muted)' }}
-              >
+              <figcaption className="text-center text-sm italic mt-3 mb-1 font-im-fell text-ink-muted">
                 Retrato dos Noivos, 2024
               </figcaption>
             </figure>
@@ -107,11 +98,8 @@ export default function Home() {
                   sizes="(min-width: 1024px) 25vw, 0px"
                 />
               </div>
-              <figcaption
-                className="text-center text-sm italic mt-3 mb-1"
-                style={{ fontFamily: 'var(--font-im-fell), serif', color: 'var(--color-ink-muted)' }}
-              >
-                Igreja Matriz N. Sra. da Sa&#250;de
+              <figcaption className="text-center text-sm italic mt-3 mb-1 font-im-fell text-ink-muted">
+                Igreja Matriz N. Sra. da Saúde
               </figcaption>
             </figure>
           </aside>

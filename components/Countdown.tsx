@@ -9,6 +9,10 @@ type TimeLeft = {
   seconds: number;
 };
 
+interface CountdownProps {
+  deadline: string | null;
+}
+
 function getTimeLeft(deadline: string): TimeLeft | null {
   const diff = new Date(deadline).getTime() - Date.now();
   if (diff <= 0) return null;
@@ -20,7 +24,7 @@ function getTimeLeft(deadline: string): TimeLeft | null {
   };
 }
 
-export default function Countdown({ deadline }: { deadline: string | null }) {
+export default function Countdown({ deadline }: CountdownProps) {
   const [timeLeft, setTimeLeft] = useState<TimeLeft | null>(null);
 
   useEffect(() => {
@@ -34,16 +38,10 @@ export default function Countdown({ deadline }: { deadline: string | null }) {
 
   return (
     <div className="text-center mt-3">
-      <p
-        className="text-xs tracking-widest uppercase mb-1"
-        style={{ color: 'var(--color-ink-muted)', fontFamily: 'var(--font-im-fell), serif' }}
-      >
+      <p className="text-xs tracking-widest uppercase mb-1 text-ink-muted font-im-fell">
         Prazo para confirmação
       </p>
-      <p
-        className="text-sm italic"
-        style={{ color: 'var(--color-ink-muted)', fontFamily: 'var(--font-im-fell), serif' }}
-      >
+      <p className="text-sm italic text-ink-muted font-im-fell">
         {timeLeft.days}d {String(timeLeft.hours).padStart(2, '0')}h{' '}
         {String(timeLeft.minutes).padStart(2, '0')}m{' '}
         {String(timeLeft.seconds).padStart(2, '0')}s

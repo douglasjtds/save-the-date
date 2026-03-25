@@ -1,15 +1,15 @@
-type Member = {
+interface Member {
   name: string;
   attending: boolean;
-};
+}
 
-type Props = {
+interface FamilyCardProps {
   familyName: string;
   members: Member[];
   onToggle: (name: string) => void;
   onConfirm: () => void;
   isSubmitting: boolean;
-};
+}
 
 export default function FamilyCard({
   familyName,
@@ -17,35 +17,22 @@ export default function FamilyCard({
   onToggle,
   onConfirm,
   isSubmitting,
-}: Props) {
+}: FamilyCardProps) {
   return (
     <div
-      className="state-enter w-full relative"
-      style={{
-        border: '1px solid var(--color-border)',
-        boxShadow: 'var(--shadow-card)',
-        backgroundColor: 'var(--color-paper-dark)',
-      }}
+      className="state-enter w-full relative bg-paper-dark border border-border"
+      style={{ boxShadow: 'var(--shadow-card)' }}
     >
       {/* Inner decorative border */}
       <div className="absolute top-2 left-2 right-2 bottom-2 border border-[var(--color-border)] pointer-events-none" />
 
       {/* Card header */}
-      <div
-        className="relative z-10 px-6 py-4"
-        style={{ borderBottom: '1px solid var(--color-border)' }}
-      >
-        <h3
-          className="text-xl font-bold"
-          style={{ fontFamily: 'var(--font-playfair), serif', color: 'var(--color-ink)' }}
-        >
+      <div className="relative z-10 px-6 py-4 border-b border-border">
+        <h3 className="text-xl font-bold font-playfair text-ink">
           {familyName}
         </h3>
-        <p
-          className="text-sm italic mt-1"
-          style={{ fontFamily: 'var(--font-im-fell), serif', color: 'var(--color-ink-muted)' }}
-        >
-          Desmarque quem n&#227;o poder&#225; comparecer
+        <p className="text-sm italic mt-1 font-im-fell text-ink-muted">
+          Desmarque quem não poderá comparecer
         </p>
       </div>
 
@@ -54,11 +41,7 @@ export default function FamilyCard({
         {members.map((member, i) => (
           <li
             key={member.name}
-            className="flex items-center gap-4 py-3"
-            style={{
-              borderBottom: i < members.length - 1 ? '1px solid var(--color-border)' : 'none',
-              minHeight: '44px',
-            }}
+            className="flex items-center gap-4 py-3 border-b border-border last:border-b-0 min-h-[44px]"
           >
             <label className="checkbox-editorial">
               <input
@@ -76,12 +59,7 @@ export default function FamilyCard({
             </label>
             <label
               htmlFor={`member-${i}`}
-              className="text-base cursor-pointer select-none flex-1"
-              style={{
-                fontFamily: 'var(--font-im-fell), serif',
-                color: member.attending ? 'var(--color-ink)' : 'var(--color-ink-muted)',
-                textDecoration: member.attending ? 'none' : 'line-through',
-              }}
+              className={`text-base cursor-pointer select-none flex-1 font-im-fell ${member.attending ? 'text-ink' : 'text-ink-muted line-through'}`}
             >
               {member.name}
             </label>
@@ -99,10 +77,10 @@ export default function FamilyCard({
           {isSubmitting ? (
             <>
               <span className="spinner" aria-hidden="true" />
-              Confirmando&#8230;
+              Confirmando…
             </>
           ) : (
-            'Confirmar Presen\u00e7a'
+            'Confirmar Presença'
           )}
         </button>
       </div>
