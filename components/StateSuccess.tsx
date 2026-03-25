@@ -11,10 +11,10 @@ export default function StateSuccess({ familyName }: StateSuccessProps) {
 
       {/* Rotated icon container */}
       <div
-        className="w-16 h-16 flex items-center justify-center rotate-[3deg] border-2 border-success text-success bg-paper"
+        className="w-16 h-16 flex items-center justify-center rotate-3 border-2 border-success text-success bg-paper"
         aria-hidden="true"
       >
-        <svg className="-rotate-[3deg]" width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg className="-rotate-3" width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M4 12L9.5 17.5L20 6.5" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       </div>
