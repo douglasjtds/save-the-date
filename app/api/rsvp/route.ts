@@ -42,7 +42,8 @@ export async function POST(request: Request) {
     }
 
     return Response.json(data);
-  } catch {
+  } catch (err) {
+    console.error('[rsvp] GAS request failed:', err);
     return Response.json({ success: false, error: 'network_error' }, { status: 502 });
   }
 }

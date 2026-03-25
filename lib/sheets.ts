@@ -38,7 +38,8 @@ export async function submitRSVP(
       body: JSON.stringify(payload),
     });
     return await res.json();
-  } catch {
+  } catch (err) {
+    console.error('[sheets] submitRSVP failed:', err);
     return { success: false, error: 'network_error' };
   }
 }
