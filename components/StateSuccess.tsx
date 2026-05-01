@@ -2,9 +2,10 @@ import LilyDivider from './LilyDivider';
 
 interface StateSuccessProps {
   familyName: string;
+  isUpdate?: boolean;
 }
 
-export default function StateSuccess({ familyName }: StateSuccessProps) {
+export default function StateSuccess({ familyName, isUpdate }: StateSuccessProps) {
   return (
     <div className="state-enter text-center flex flex-col items-center gap-4 py-8">
       <LilyDivider />
@@ -20,11 +21,20 @@ export default function StateSuccess({ familyName }: StateSuccessProps) {
       </div>
 
       <h3 className="text-2xl md:text-3xl font-bold font-playfair text-ink">
-        Confirmação recebida!
+        {isUpdate ? 'Confirmação atualizada!' : 'Confirmação recebida!'}
       </h3>
       <p className="text-lg leading-relaxed max-w-sm font-im-fell text-ink">
-        Obrigado, <span className="italic">{familyName}</span>!<br />
-        Esperamos por vocês em 21 de Novembro.
+        {isUpdate ? (
+          <>
+            <span className="italic">{familyName}</span>, suas alterações foram salvas.<br />
+            Esperamos por vocês em 21 de Novembro.
+          </>
+        ) : (
+          <>
+            Obrigado, <span className="italic">{familyName}</span>!<br />
+            Esperamos por vocês em 21 de Novembro.
+          </>
+        )}
       </p>
       <div className="divider-accent w-24 mx-auto" />
       <p className="text-sm italic font-im-fell text-ink-muted">

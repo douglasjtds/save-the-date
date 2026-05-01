@@ -1,4 +1,4 @@
-import Fuse from 'fuse.js';
+import Fuse, { type IFuseOptions } from 'fuse.js';
 
 export type GuestGroup = {
   id: string;
@@ -6,11 +6,13 @@ export type GuestGroup = {
   members: string[];
 };
 
+function stripAccents(text: string): string {
+  return text.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+}
+
 function slugify(text: string): string {
-  return text
+  return stripAccents(text)
     .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
     .replace(/[^a-z0-9\s-]/g, '')
     .replace(/\s+/g, '-')
     .replace(/-+/g, '-')
@@ -38,7 +40,7 @@ export function parseGuestList(markdown: string): GuestGroup[] {
   return groups;
 }
 
-const FUSE_OPTIONS = {
+const FUSE_OPTIONS: IFuseOptions<GuestGroup> = {
   keys: [
     { name: 'familyName', weight: 0.6 },
     { name: 'members', weight: 0.4 },
@@ -46,13 +48,20 @@ const FUSE_OPTIONS = {
   threshold: 0.35,
   includeScore: true,
   minMatchCharLength: 2,
+  getFn: (obj, path) => {
+    const value = Fuse.config.getFn(obj, path);
+    if (Array.isArray(value)) {
+      return value.map((v) => stripAccents(String(v)));
+    }
+    return typeof value === 'string' ? stripAccents(value) : value;
+  },
 };
 
 export function searchGuests(query: string, groups: GuestGroup[]): GuestGroup[] {
   if (!query || query.length < 2) return [];
   const fuse = new Fuse(groups, FUSE_OPTIONS);
   return fuse
-    .search(query)
+    .search(stripAccents(query))
     .filter((r) => (r.score ?? 1) < 0.4)
     .map((r) => r.item)
     .slice(0, 5);

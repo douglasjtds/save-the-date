@@ -9,6 +9,7 @@ interface FamilyCardProps {
   onToggle: (name: string) => void;
   onConfirm: () => void;
   isSubmitting: boolean;
+  isUpdate?: boolean;
 }
 
 export default function FamilyCard({
@@ -17,6 +18,7 @@ export default function FamilyCard({
   onToggle,
   onConfirm,
   isSubmitting,
+  isUpdate,
 }: FamilyCardProps) {
   return (
     <div
@@ -32,7 +34,7 @@ export default function FamilyCard({
           {familyName}
         </h3>
         <p className="text-sm italic mt-1 font-im-fell text-ink-muted">
-          Desmarque quem não poderá comparecer
+          Marque quem poderá comparecer
         </p>
       </div>
 
@@ -77,10 +79,10 @@ export default function FamilyCard({
           {isSubmitting ? (
             <>
               <span className="spinner" aria-hidden="true" />
-              Confirmando…
+              {isUpdate ? 'Atualizando…' : 'Confirmando…'}
             </>
           ) : (
-            'Confirmar Presença'
+            isUpdate ? 'Atualizar Confirmação' : 'Confirmar Presença'
           )}
         </button>
       </div>

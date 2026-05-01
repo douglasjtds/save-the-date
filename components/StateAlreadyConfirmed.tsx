@@ -1,8 +1,9 @@
 interface StateAlreadyConfirmedProps {
   familyName: string;
+  onEdit: () => void;
 }
 
-export default function StateAlreadyConfirmed({ familyName }: StateAlreadyConfirmedProps) {
+export default function StateAlreadyConfirmed({ familyName, onEdit }: StateAlreadyConfirmedProps) {
   return (
     <div className="state-enter text-center flex flex-col items-center gap-4 py-8">
       {/* Rotated icon container — ink-muted */}
@@ -26,6 +27,13 @@ export default function StateAlreadyConfirmed({ familyName }: StateAlreadyConfir
         <span className="italic">{familyName}</span>, sua presença já está registrada.<br />
         Será um prazer tê-los conosco.
       </p>
+      <button
+        onClick={onEdit}
+        className="text-sm italic underline underline-offset-2 font-im-fell bg-transparent border-none cursor-pointer"
+        style={{ color: 'var(--color-terracota)' }}
+      >
+        Alterar confirmação
+      </button>
       <div className="divider-accent w-24 mx-auto" />
       <p className="text-sm italic font-im-fell text-ink-muted">
         21 de Novembro de 2026 · Igreja Matriz N.S. da Saúde, Lagoa Santa

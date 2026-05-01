@@ -13,17 +13,25 @@ export type RSVPPayload = {
   timestamp: string;
 };
 
+export type CheckResult = {
+  confirmed: boolean;
+  members?: RSVPMember[];
+};
+
 /** Check if a group has already confirmed in the spreadsheet */
-export async function checkIfConfirmed(groupId: string): Promise<boolean> {
-  if (!APPS_SCRIPT_URL) return false;
+export async function checkIfConfirmed(groupId: string): Promise<CheckResult> {
+  if (!APPS_SCRIPT_URL) return { confirmed: false };
   try {
     const url = `${APPS_SCRIPT_URL}?action=check&groupId=${encodeURIComponent(groupId)}`;
     const res = await fetch(url, { cache: 'no-store' });
     const data = await res.json();
-    return data.confirmed === true;
+    if (data.confirmed === true) {
+      return { confirmed: true, members: data.members };
+    }
+    return { confirmed: false };
   } catch {
     // On network error, assume not confirmed so user can proceed
-    return false;
+    return { confirmed: false };
   }
 }
 

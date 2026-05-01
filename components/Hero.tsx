@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Countdown from './Countdown';
 
 interface HeroProps {
@@ -8,10 +9,14 @@ export default function Hero({ deadline }: HeroProps) {
   return (
     <section className="w-full py-6">
       <div className="text-center mb-6">
-        {/* Badge — inverted ink */}
-        <span className="inline-block px-3 py-1 text-xs uppercase font-bold tracking-widest mb-6 rounded-[2px] font-playfair bg-ink text-paper">
-          Save The Date
-        </span>
+        <Image
+          src="/logo_i-d.png"
+          alt="Iara & Douglas"
+          width={240}
+          height={240}
+          priority
+          className="mx-auto mb-6 w-32 sm:w-40 lg:w-60 h-auto"
+        />
 
         {/* Headline */}
         <h2 className="text-3xl sm:text-4xl font-bold leading-tight font-playfair text-ink">
@@ -23,12 +28,15 @@ export default function Hero({ deadline }: HeroProps) {
       <div className="text-base sm:text-lg leading-relaxed text-justify space-y-4 mb-8 font-im-fell text-ink">
         <p>
           <span className="float-left text-6xl font-black leading-[0.75] mr-3 mt-1 font-playfair text-ink">
-            É
+            C
           </span>
-          com imensa alegria que convidamos você para testemunhar e celebrar este novo capítulo de nossas vidas. Após anos de histórias compartilhadas, risadas e cumplicidade, decidimos oficializar nossa união cercados pelas pessoas que tornam nossa jornada autêntica e inesquecível.
+          om imensa alegria, convidamos você para celebrar conosco esse momento tão especial! Uma história de amor construída em Cristo, tornada ainda mais inesquecível pela presença de quem amamos.
         </p>
         <p>
-          A cerimônia e a recepção ocorrerão no mesmo local, pensadas com esmero para proporcionar uma tarde memorável. Haverá boa música, comida afetiva e memórias que guardaremos para a posteridade.
+          Para conseguirmos fazer tudo com excelência, confirme sua presença até 02 de junho. A cerimônia e a recepção serão em Lagoa Santa. Horários e endereços exatos serão informados no convite entregue em mãos.
+        </p>
+        <p>
+          Ter você conosco é muito importante para nós!
         </p>
       </div>
 

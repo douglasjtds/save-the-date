@@ -29,8 +29,8 @@ export default function Home() {
             <Masthead />
 
             {/* Mobile photo 1 */}
-            <figure className="block lg:hidden photo-editorial -rotate-1 max-w-[280px] mx-auto mt-8 mb-4">
-              <div className="relative aspect-[3/4] w-full">
+            <figure className="block lg:hidden photo-editorial -rotate-1 max-w-70 mx-auto mt-8 mb-4">
+              <div className="relative aspect-3/4 w-full">
                 <Image
                   src="/images/IMG_2711.JPG"
                   alt="Iara e Douglas"
@@ -40,7 +40,7 @@ export default function Home() {
                 />
               </div>
               <figcaption className="text-center text-sm italic mt-3 mb-1 font-im-fell text-ink-muted">
-                Retrato dos Noivos, 2024
+                Nossa Essência
               </figcaption>
             </figure>
 
@@ -52,26 +52,26 @@ export default function Home() {
             </section>
 
             {/* Mobile photo 2 */}
-            <figure className="block lg:hidden photo-editorial rotate-[2deg] max-w-[280px] mx-auto mt-8 mb-4">
-              <div className="relative aspect-[3/4] w-full">
+            <figure className="block lg:hidden photo-editorial rotate-2 max-w-70 mx-auto mt-8 mb-4">
+              <div className="relative aspect-3/4 w-full">
                 <Image
                   src="/images/IMG_2722.JPG"
-                  alt="Igreja Matriz N. Sra. da Saúde"
+                  alt="Conexão real"
                   fill
                   className="object-cover mix-blend-multiply"
                   sizes="280px"
                 />
               </div>
               <figcaption className="text-center text-sm italic mt-3 mb-1 font-im-fell text-ink-muted">
-                Igreja Matriz N. Sra. da Saúde
+                Conexão real
               </figcaption>
             </figure>
           </article>
 
           {/* ── Left photo column (desktop only) ── */}
           <aside className="hidden lg:flex col-span-1 order-2 lg:order-1 flex-col items-center">
-            <figure className="w-full photo-editorial rotate-[-1deg] hover:rotate-0 transition-transform duration-500">
-              <div className="relative aspect-[3/4] w-full">
+            <figure className="w-full photo-editorial -rotate-1 hover:rotate-0 transition-transform duration-500">
+              <div className="relative aspect-3/4 w-full">
                 <Image
                   src="/images/IMG_2711.JPG"
                   alt="Iara e Douglas"
@@ -80,26 +80,26 @@ export default function Home() {
                   sizes="(min-width: 1024px) 25vw, 0px"
                 />
               </div>
-              <figcaption className="text-center text-sm italic mt-3 mb-1 font-im-fell text-ink-muted">
-                Retrato dos Noivos, 2024
+              <figcaption className="text-center text-lg italic mt-3 mb-1 font-im-fell text-ink-muted">
+                Nossa Essência
               </figcaption>
             </figure>
           </aside>
 
           {/* ── Right photo column (desktop only) ── */}
           <aside className="hidden lg:flex col-span-1 order-3 lg:order-3 flex-col items-center lg:mt-32">
-            <figure className="w-full photo-editorial rotate-[2deg] hover:rotate-0 transition-transform duration-500">
-              <div className="relative aspect-[3/4] w-full">
+            <figure className="w-full photo-editorial rotate-2 hover:rotate-0 transition-transform duration-500">
+              <div className="relative aspect-3/4 w-full">
                 <Image
                   src="/images/IMG_2722.JPG"
-                  alt="Igreja Matriz N. Sra. da Saúde"
+                  alt="Conexão real"
                   fill
                   className="object-cover mix-blend-multiply"
                   sizes="(min-width: 1024px) 25vw, 0px"
                 />
               </div>
-              <figcaption className="text-center text-sm italic mt-3 mb-1 font-im-fell text-ink-muted">
-                Igreja Matriz N. Sra. da Saúde
+              <figcaption className="text-center text-lg italic bold mt-3 mb-1 font-im-fell text-ink-muted">
+                Conexão real
               </figcaption>
             </figure>
           </aside>

@@ -4,7 +4,8 @@ import { useEffect, useRef, useState } from 'react';
 import type { GuestGroup } from '@/lib/guests';
 import { searchGuests } from '@/lib/guests';
 import { checkIfConfirmed, submitRSVP } from '@/lib/sheets';
-import { isGroupConfirmedLocally, markGroupConfirmed } from '@/lib/storage';
+import type { RSVPMember } from '@/lib/sheets';
+import { isGroupConfirmedLocally, markGroupConfirmed, getLocalMembers } from '@/lib/storage';
 import FamilyCard from './FamilyCard';
 import StateSuccess from './StateSuccess';
 import StateAlreadyConfirmed from './StateAlreadyConfirmed';
@@ -17,6 +18,7 @@ type AppState =
   | 'found'
   | 'checking'
   | 'already_confirmed'
+  | 'editing'
   | 'submitting'
   | 'success'
   | 'not_found'
@@ -30,6 +32,14 @@ interface SearchSectionProps {
   deadline: string | null;
 }
 
+/** Merge canonical members from guests.md with previously saved attendance */
+function mergeMembers(canonicalNames: string[], previous: RSVPMember[] | null): Member[] {
+  return canonicalNames.map((name) => {
+    const prev = previous?.find((m) => m.name === name);
+    return { name, attending: prev?.attending ?? false };
+  });
+}
+
 export default function SearchSection({
   guests,
   deadline,
@@ -38,6 +48,7 @@ export default function SearchSection({
   const [query, setQuery] = useState('');
   const [selectedGroup, setSelectedGroup] = useState<GuestGroup | null>(null);
   const [members, setMembers] = useState<Member[]>([]);
+  const [isUpdate, setIsUpdate] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
   // Check deadline on mount
@@ -65,22 +76,32 @@ export default function SearchSection({
 
     // Check localStorage first (fast path)
     if (isGroupConfirmedLocally(group.id)) {
+      const localMembers = getLocalMembers(group.id);
+      setMembers(mergeMembers(group.members, localMembers));
+      setIsUpdate(true);
       setAppState('already_confirmed');
       return;
     }
 
     // Check spreadsheet
     setAppState('checking');
-    const confirmed = await checkIfConfirmed(group.id);
-    if (confirmed) {
-      markGroupConfirmed(group.id);
+    const result = await checkIfConfirmed(group.id);
+    if (result.confirmed) {
+      const previousMembers = result.members ?? null;
+      markGroupConfirmed(group.id, previousMembers ?? undefined);
+      setMembers(mergeMembers(group.members, previousMembers));
+      setIsUpdate(true);
       setAppState('already_confirmed');
       return;
     }
 
-    // Show family card with all members checked by default
-    setMembers(group.members.map((name) => ({ name, attending: true })));
+    // Show family card with all members unchecked by default
+    setMembers(group.members.map((name) => ({ name, attending: false })));
     setAppState('found');
+  }
+
+  function handleEdit() {
+    setAppState('editing');
   }
 
   function handleToggle(name: string) {
@@ -106,8 +127,13 @@ export default function SearchSection({
     });
 
     if (result.success || result.error === 'already_confirmed') {
-      markGroupConfirmed(selectedGroup.id);
-      setAppState(result.error === 'already_confirmed' ? 'already_confirmed' : 'success');
+      markGroupConfirmed(selectedGroup.id, members);
+      if (result.error === 'already_confirmed') {
+        // Transition period: old Apps Script rejects duplicates — treat as success
+        setAppState('success');
+      } else {
+        setAppState('success');
+      }
     } else {
       setAppState('network_error');
     }
@@ -122,6 +148,7 @@ export default function SearchSection({
     setQuery('');
     setSelectedGroup(null);
     setMembers([]);
+    setIsUpdate(false);
     setAppState('idle');
     setTimeout(() => inputRef.current?.focus(), 100);
   }
@@ -185,7 +212,7 @@ export default function SearchSection({
         )}
 
         {/* Family card */}
-        {(appState === 'found' || appState === 'submitting') && selectedGroup && (
+        {(appState === 'found' || appState === 'editing' || appState === 'submitting') && selectedGroup && (
           <div className="relative z-10">
             <FamilyCard
               familyName={selectedGroup.familyName}
@@ -193,6 +220,7 @@ export default function SearchSection({
               onToggle={handleToggle}
               onConfirm={handleConfirm}
               isSubmitting={appState === 'submitting'}
+              isUpdate={isUpdate}
             />
           </div>
         )}
@@ -200,14 +228,14 @@ export default function SearchSection({
         {/* Success */}
         {appState === 'success' && selectedGroup && (
           <div className="relative z-10">
-            <StateSuccess familyName={selectedGroup.familyName} />
+            <StateSuccess familyName={selectedGroup.familyName} isUpdate={isUpdate} />
           </div>
         )}
 
         {/* Already confirmed */}
         {appState === 'already_confirmed' && selectedGroup && (
           <div className="relative z-10">
-            <StateAlreadyConfirmed familyName={selectedGroup.familyName} />
+            <StateAlreadyConfirmed familyName={selectedGroup.familyName} onEdit={handleEdit} />
           </div>
         )}
 
@@ -226,7 +254,7 @@ export default function SearchSection({
         )}
 
         {/* Reset link for non-idle states (except deadline_passed) */}
-        {['found', 'submitting', 'success', 'already_confirmed', 'network_error'].includes(appState) && (
+        {['found', 'editing', 'submitting', 'success', 'already_confirmed', 'network_error'].includes(appState) && (
           <div className="relative z-10 text-center mt-6">
             <button
               onClick={handleReset}

@@ -1,107 +1,212 @@
 <!-- Casamento Iara Mello & Douglas Tertuliano — 21/11/2026 -->
 <!-- Atualizado em: 25/03/2026 -->
 
-## Família Douglas
+## Família Sônia
 - Sônia Tertuliano do Carmo
-- André Luiz Tertuliano dos Santos
-- Calypso Martins
 - Anerito
 
-## Família Selma
+## Família André Tertuliano
+- André Luiz Tertuliano dos Santos
+- Calypso Martins
+- Pedrinho
+- Rafael
+
+## Família Selma Tertuliano
 - Selma Tertuliano
 - Claudio Moura
+- Cláudia Tertuliano
+- Davi
+
+## Família Patrícia Tertuliano
 - Patrícia Regina Tertuliano
 - Diego Rebechi
-- Cláudia Tertuliano
 
-## Família Santos
+## Família Tia Sílvia
 - Maria Sílvia Tertuliano
 - Silmar Santos
 - Mariana Tertuliano
-- Paola
 
-## Família Idalton
-- Idalton
+## Paôla
+- Paôla
+
+## Família Tio Idalton
+- Idalton Tertuliano
 - Avani
+
+## Família Jéssica Tertuliano
 - Jéssica
 - Felipe
+- Yasmin
 
-## Família Sandra
+## Família Tia Sandra
 - Sandra Tertuliano
 - João Carlos
-- Carla
+
+## Família Carla
+- Carla Tertuliano
 - Eduardo
+
+## Família Flávia
 - Flávia
 - Gabriel
-- Nathália
+- Filhos
 
-## Família Marco
-- Marco Antônio
-- Tia Verinha
+## Família Nathalia
+- Nathália
+- Mateus
+
+## Marco
+- Marco Antônio dos Santos
+
+## Família Vera
+- Verinha
 - Júnior
 - Isabela
 - Jéssica
-- Tio Marcelo
-- Mulher do tio Marcelo
 
-## Amigos Douglas
-- Tujhon
+## Família Tio Marcelo
+- Marcelo
+- Beth
+
+## Tujhon
+- Victor Jhon
 - Ana
+
+## Négas
 - Victor Felipe
 - Rayssa
+
+## Matheus Damasceno
 - Matheus Damasceno
 - Mari
-- Gabi
+
+## Gabu!
+- Gabriela Aburachid
 - Arthur
+
+## Kethlin Betoni
 - Ketlhin
 - Guilherme
+
+## Danilo
 - Danilo
+
+## Neres
 - Neres
+
+## Babi
 - Babi
 - Bruno
 
-## Família Pai da Iara
-- Kleber
+## João Coelho
+- João Coelho
+
+## Andrey Cotta
+- Andrey Cotta
+
+## Família Aline
 - Aline
-- Victor
-- Amanda
-- Maria
+- Maria Clara
 - Ruan
 - Maria Tereza
+
+## Família Paulo
+- Paulo
+- Letícia
+- Sávio
+
+## Família Victor Vieira
+- Victor
+- Amanda
+
+## Família Edmeia
 - Maria Edmeia
+- Henrique
+
+## Família Mariana
 - Mariana
 - Fabrício
-- Henrique
+- Pedro
+
+## Família Vavá
 - Tio Vavá (Wagner)
 
-## Família Mãe da Iara
+## Família Fabiana
 - Fabiana
 - Maurício
 - Rosa Maria
 - Antônia
+
+## Família Tia Lili
 - Helesangela
 - José Guilherme
 - José Guilherme Neto
 - Maria Antonia
 
-## Amigos Iara
+## Família Lu e Lu
+- Luciana
+- Luciano
+- Isabela
+
+## Família Lilian
+- Lilian
+- Fernando
+- Luca
+- Gabriel
+
+## Tati
 - Thaina
 - Leonardo
-- Pedrinho
+
+## Família Pedrin
+- Pedro Ivo
+- Cinara
+- Fabiano
+
+## Guzão
 - Gustavo
 - Victoria
+
+## Família Lulu
 - Ludmila
 - Luis Felipe
-- Nina
+- Helena
+
+## Ninoca
+- Nina (Marina)
 - Daniel
+
+## Bela
 - Isabela
 - Pedro
+
+## Dani e Samuel
 - Danielle
 - Samuel
-- Leticia
+
+## Lelet & Tonin coração de papel
+- Leticia Taveira
 - Antonio
+
+## Bebel
 - Bel
+
+## Família Joyce
 - Joyce
 - Gilmar
+
+## Família Beline
 - Beline
-- Esposa
+- Milene
+
+## Manoel do Gui
+- Manoel do Gui
+- Cássia
+
+## Convidado de Honra
+- Padre Ednei
+
+
+- Cantor
+- Fotógrafo
+- Acompanhante do fotógrafo
