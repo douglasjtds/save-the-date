@@ -1,12 +1,13 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import type { GuestGroup } from '@/lib/guests';
+import type { GuestGroup, SearchResult } from '@/lib/guests';
 import { searchGuests } from '@/lib/guests';
 import { checkIfConfirmed, submitRSVP } from '@/lib/sheets';
 import type { RSVPMember } from '@/lib/sheets';
 import { isGroupConfirmedLocally, markGroupConfirmed, getLocalMembers } from '@/lib/storage';
 import FamilyCard from './FamilyCard';
+import DisambiguationList from './DisambiguationList';
 import StateSuccess from './StateSuccess';
 import StateAlreadyConfirmed from './StateAlreadyConfirmed';
 import StateNotFound from './StateNotFound';
@@ -15,6 +16,7 @@ import StateDeadlinePassed from './StateDeadlinePassed';
 
 type AppState =
   | 'idle'
+  | 'disambiguating'
   | 'found'
   | 'checking'
   | 'already_confirmed'
@@ -49,6 +51,8 @@ export default function SearchSection({
   const [selectedGroup, setSelectedGroup] = useState<GuestGroup | null>(null);
   const [members, setMembers] = useState<Member[]>([]);
   const [isUpdate, setIsUpdate] = useState(false);
+  const [matches, setMatches] = useState<SearchResult[]>([]);
+  const [searchedQuery, setSearchedQuery] = useState('');
   const inputRef = useRef<HTMLInputElement>(null);
 
   // Check deadline on mount
@@ -70,8 +74,17 @@ export default function SearchSection({
       return;
     }
 
-    // Use first result
-    const group = results[0];
+    if (results.length > 1) {
+      setMatches(results);
+      setSearchedQuery(query.trim());
+      setAppState('disambiguating');
+      return;
+    }
+
+    await selectGroup(results[0].group);
+  }
+
+  async function selectGroup(group: GuestGroup) {
     setSelectedGroup(group);
 
     // Check localStorage first (fast path)
@@ -98,6 +111,10 @@ export default function SearchSection({
     // Show family card with all members unchecked by default
     setMembers(group.members.map((name) => ({ name, attending: false })));
     setAppState('found');
+  }
+
+  async function handleSelectMatch(result: SearchResult) {
+    await selectGroup(result.group);
   }
 
   function handleEdit() {
@@ -149,6 +166,8 @@ export default function SearchSection({
     setSelectedGroup(null);
     setMembers([]);
     setIsUpdate(false);
+    setMatches([]);
+    setSearchedQuery('');
     setAppState('idle');
     setTimeout(() => inputRef.current?.focus(), 100);
   }
@@ -211,6 +230,17 @@ export default function SearchSection({
           </div>
         )}
 
+        {/* Disambiguation list */}
+        {appState === 'disambiguating' && (
+          <div className="relative z-10">
+            <DisambiguationList
+              query={searchedQuery}
+              matches={matches}
+              onSelect={handleSelectMatch}
+            />
+          </div>
+        )}
+
         {/* Family card */}
         {(appState === 'found' || appState === 'editing' || appState === 'submitting') && selectedGroup && (
           <div className="relative z-10">
@@ -254,7 +284,7 @@ export default function SearchSection({
         )}
 
         {/* Reset link for non-idle states (except deadline_passed) */}
-        {['found', 'editing', 'submitting', 'success', 'already_confirmed', 'network_error'].includes(appState) && (
+        {['disambiguating', 'found', 'editing', 'submitting', 'success', 'already_confirmed', 'network_error'].includes(appState) && (
           <div className="relative z-10 text-center mt-6">
             <button
               onClick={handleReset}

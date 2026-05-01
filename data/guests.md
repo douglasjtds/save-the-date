@@ -116,7 +116,7 @@
 - Sávio
 
 ## Família Victor Vieira
-- Victor
+- Victor Vieira
 - Amanda
 
 ## Família Edmeia
@@ -185,7 +185,7 @@
 - Samuel
 
 ## Lelet & Tonin coração de papel
-- Leticia Taveira
+- Letícia Taveira
 - Antonio
 
 ## Bebel
@@ -206,7 +206,7 @@
 ## Convidado de Honra
 - Padre Ednei
 
-
+## outros, ver como vai ficar
 - Cantor
 - Fotógrafo
 - Acompanhante do fotógrafo
