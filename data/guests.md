@@ -3,7 +3,7 @@
 
 ## Família Sônia
 - Sônia Tertuliano do Carmo
-- Anerito
+- Anerito Xavier
 
 ## Família André Tertuliano
 - André Luiz Tertuliano dos Santos
@@ -18,8 +18,8 @@
 - Davi
 
 ## Família Patrícia Tertuliano
-- Patrícia Regina Tertuliano
-- Diego Rebechi
+- Patrícia Tertuliano
+- Diego Rebecchi
 
 ## Família Tia Sílvia
 - Maria Sílvia Tertuliano
@@ -27,15 +27,15 @@
 - Mariana Tertuliano
 
 ## Paôla
-- Paôla
+- Paôla Faria
 
 ## Família Tio Idalton
 - Idalton Tertuliano
-- Avani
+- Avani Freitas
 
 ## Família Jéssica Tertuliano
-- Jéssica
-- Felipe
+- Jéssica Tertuliano
+- Marcos Felipe
 - Yasmin
 
 ## Família Tia Sandra
@@ -47,19 +47,19 @@
 - Eduardo
 
 ## Família Flávia
-- Flávia
-- Gabriel
+- Flávia Tertuliano
+- Gabriel Thiers
 - Filhos
 
 ## Família Nathalia
-- Nathália
+- Nathália Tertuliano Caires
 - Mateus
 
 ## Marco
 - Marco Antônio dos Santos
 
-## Família Vera
-- Verinha
+## Família Tia Verinha
+- Vera 
 - Júnior
 - Isabela
 - Jéssica
@@ -95,8 +95,8 @@
 - Neres
 
 ## Babi
-- Babi
-- Bruno
+- Bárbara 
+- Bruno Vasconcellos
 
 ## João Coelho
 - João Coelho
