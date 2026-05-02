@@ -28,21 +28,44 @@ export default function Home() {
           <article className="col-span-1 lg:col-span-2 order-1 lg:order-2 flex flex-col items-center max-w-(--max-width-content) mx-auto w-full">
             <Masthead />
 
-            {/* Mobile photo 1 */}
-            <figure className="block lg:hidden photo-editorial -rotate-1 max-w-70 mx-auto mt-8 mb-4">
-              <div className="relative aspect-3/4 w-full">
+            {/* Mobile: spread de jornal — foto + manchete em duas colunas */}
+            <div className="lg:hidden grid grid-cols-[2fr_3fr] gap-3 items-start mt-4 mb-2 w-full">
+              <figure className="photo-editorial -rotate-1">
+                <div className="relative aspect-3/4 w-full">
+                  <Image
+                    src="/images/IMG_2711.JPG"
+                    alt="Iara e Douglas"
+                    fill
+                    className="object-cover mix-blend-multiply"
+                    sizes="38vw"
+                  />
+                </div>
+                <figcaption className="text-center text-[10px] italic mt-1.5 mb-0 font-im-fell text-ink-muted">
+                  Nossa Essência
+                </figcaption>
+              </figure>
+
+              <div className="flex flex-col items-center pt-1 gap-2">
                 <Image
-                  src="/images/IMG_2711.JPG"
-                  alt="Iara e Douglas"
-                  fill
-                  className="object-cover mix-blend-multiply"
-                  sizes="280px"
+                  src="/logo_i-d.png"
+                  alt="Iara & Douglas"
+                  width={80}
+                  height={80}
+                  className="w-16 h-auto"
                 />
+                <h2 className="text-base font-bold leading-snug font-playfair text-ink text-center">
+                  Iara & Douglas anunciam a data da cerimônia
+                </h2>
+                <div className="w-full border-t border-b border-border py-1 mt-1">
+                  <p className="text-[9px] uppercase tracking-widest font-playfair text-ink-muted text-center leading-relaxed">
+                    21 de Novembro de 2026
+                  </p>
+                  <p className="text-[9px] uppercase tracking-widest font-playfair text-ink-muted text-center leading-relaxed">
+                    Lagoa Santa, MG
+                  </p>
+                </div>
               </div>
-              <figcaption className="text-center text-sm italic mt-3 mb-1 font-im-fell text-ink-muted">
-                Nossa Essência
-              </figcaption>
-            </figure>
+            </div>
 
             <Hero deadline={deadline} />
             <LilyDivider />
@@ -51,18 +74,18 @@ export default function Home() {
               <SearchSection guests={guests} deadline={deadline} />
             </section>
 
-            {/* Mobile photo 2 */}
-            <figure className="block lg:hidden photo-editorial rotate-2 max-w-70 mx-auto mt-8 mb-4">
-              <div className="relative aspect-3/4 w-full">
+            {/* Mobile: foto 2 full-width após o RSVP */}
+            <figure className="lg:hidden photo-editorial rotate-1 w-full mt-8 mb-4">
+              <div className="relative w-full aspect-3/4">
                 <Image
                   src="/images/IMG_2722.JPG"
                   alt="Conexão real"
                   fill
                   className="object-cover mix-blend-multiply"
-                  sizes="280px"
+                  sizes="100vw"
                 />
               </div>
-              <figcaption className="text-center text-sm italic mt-3 mb-1 font-im-fell text-ink-muted">
+              <figcaption className="text-center text-xs italic mt-2 mb-0 font-im-fell text-ink-muted">
                 Conexão real
               </figcaption>
             </figure>

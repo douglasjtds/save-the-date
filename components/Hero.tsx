@@ -7,8 +7,8 @@ interface HeroProps {
 
 export default function Hero({ deadline }: HeroProps) {
   return (
-    <section className="w-full py-6">
-      <div className="text-center mb-6">
+    <section className="w-full pt-2 pb-6">
+      <div className="hidden lg:block text-center mb-6">
         <Image
           src="/logo_i-d.png"
           alt="Iara & Douglas"
