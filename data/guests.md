@@ -59,7 +59,7 @@
 - Marco Antônio dos Santos
 
 ## Família Tia Verinha
-- Vera 
+- Vera
 - Júnior
 - Isabela
 - Jéssica
@@ -80,7 +80,7 @@
 - Matheus Damasceno
 - Mari
 
-## Gabu!
+## Gabu
 - Gabriela Aburachid
 - Arthur
 
@@ -89,10 +89,10 @@
 - Guilherme
 
 ## Danilo
-- Danilo
+- Danilo França
 
 ## Neres
-- Neres
+- Leonardo Neres
 
 ## Babi
 - Bárbara 
@@ -132,7 +132,7 @@
 - Tio Vavá (Wagner)
 
 ## Família Fabiana
-- Fabiana
+- Fabiana Silva
 - Maurício
 - Rosa Maria
 - Antônia
