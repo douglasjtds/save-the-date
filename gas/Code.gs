@@ -16,7 +16,7 @@ const NOTIFICATION_EMAIL = 'douglasjtds@gmail.com';
 /**
  * Handler para GET
  * Uso: ?action=check&groupId=familia-silva
- * Retorna: { confirmed: boolean }
+ * Retorna: { confirmed: boolean, members?: [{ name, attending }] }
  */
 function doGet(e) {
   const action = e.parameter.action;
@@ -26,8 +26,12 @@ function doGet(e) {
     if (!groupId) {
       return jsonResponse({ error: 'groupId is required' });
     }
-    const confirmed = isGroupConfirmed(groupId);
-    return jsonResponse({ confirmed });
+    const result = getGroupConfirmation(groupId);
+    return jsonResponse(
+      result.confirmed
+        ? { confirmed: true, members: result.members }
+        : { confirmed: false }
+    );
   }
 
   return jsonResponse({ error: 'Unknown action' });
@@ -37,6 +41,9 @@ function doGet(e) {
  * Handler para POST
  * Body: RSVPPayload (JSON stringificado)
  * Retorna: { success: boolean, error?: string }
+ *
+ * Edições sobrescrevem: linhas anteriores do groupId são removidas antes
+ * da nova gravação. O e-mail de notificação é enviado em toda submissão.
  */
 function doPost(e) {
   try {
@@ -44,10 +51,6 @@ function doPost(e) {
 
     if (!payload.groupId || !payload.familyName || !payload.confirmed) {
       return jsonResponse({ success: false, error: 'Invalid payload' });
-    }
-
-    if (isGroupConfirmed(payload.groupId)) {
-      return jsonResponse({ success: false, error: 'already_confirmed' });
     }
 
     saveRSVP(payload);
@@ -61,23 +64,40 @@ function doPost(e) {
 }
 
 /**
- * Verifica se um groupId já existe na planilha
+ * Lê todas as linhas do groupId e devolve a lista de membros + flag confirmed.
  */
-function isGroupConfirmed(groupId) {
+function getGroupConfirmation(groupId) {
   const sheet = SpreadsheetApp.openById(SPREADSHEET_ID).getSheetByName(SHEET_NAME);
   const data = sheet.getDataRange().getValues();
+  const members = [];
   for (let i = 1; i < data.length; i++) {
-    if (data[i][0] === groupId) return true;
+    if (data[i][0] === groupId) {
+      const raw = data[i][3];
+      members.push({
+        name: String(data[i][2]),
+        attending: raw === true || raw === 'TRUE' || raw === 'true',
+      });
+    }
   }
-  return false;
+  return { confirmed: members.length > 0, members: members };
 }
 
 /**
- * Grava o RSVP na planilha — uma linha por membro
+ * Grava o RSVP na planilha — uma linha por membro.
  * Colunas: groupId | familyName | memberName | attending | confirmedAt | confirmedBy
+ *
+ * Se o groupId já existir, as linhas anteriores são removidas (overwrite).
  */
 function saveRSVP(payload) {
   const sheet = SpreadsheetApp.openById(SPREADSHEET_ID).getSheetByName(SHEET_NAME);
+  const data = sheet.getDataRange().getValues();
+
+  for (let i = data.length - 1; i >= 1; i--) {
+    if (data[i][0] === payload.groupId) {
+      sheet.deleteRow(i + 1);
+    }
+  }
+
   const timestamp = payload.timestamp || new Date().toISOString();
 
   payload.confirmed.forEach(function(member) {

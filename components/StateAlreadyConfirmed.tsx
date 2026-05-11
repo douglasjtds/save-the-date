@@ -1,9 +1,14 @@
+import type { RSVPMember } from '@/lib/sheets';
+
 interface StateAlreadyConfirmedProps {
   familyName: string;
+  members?: RSVPMember[];
   onEdit: () => void;
 }
 
-export default function StateAlreadyConfirmed({ familyName, onEdit }: StateAlreadyConfirmedProps) {
+export default function StateAlreadyConfirmed({ familyName, members, onEdit }: StateAlreadyConfirmedProps) {
+  const hasMembers = Array.isArray(members) && members.length > 0;
+
   return (
     <div className="state-enter text-center flex flex-col items-center gap-4 py-8">
       {/* Rotated icon container — ink-muted */}
@@ -23,10 +28,39 @@ export default function StateAlreadyConfirmed({ familyName, onEdit }: StateAlrea
       <h3 className="text-2xl md:text-3xl font-bold font-playfair text-ink">
         Já recebemos sua confirmação!
       </h3>
-      <p className="text-lg leading-relaxed max-w-sm font-im-fell text-ink">
-        <span className="italic">{familyName}</span>, sua presença já está registrada.<br />
-        Será um prazer tê-los conosco.
-      </p>
+
+      {hasMembers ? (
+        <div className="flex flex-col items-center gap-3">
+          <p className="text-base font-im-fell italic text-ink-muted">
+            <span className="italic">{familyName}</span>
+          </p>
+          <ul className="font-im-fell text-ink text-left inline-block space-y-1">
+            {members!.map((m) => (
+              <li key={m.name} className="flex items-baseline gap-3">
+                <span
+                  aria-hidden="true"
+                  className={m.attending ? 'text-terracota' : 'text-ink-muted'}
+                  style={{ minWidth: '1ch', fontFamily: 'var(--font-playfair)' }}
+                >
+                  {m.attending ? '✓' : '—'}
+                </span>
+                <span className={m.attending ? '' : 'line-through text-ink-muted'}>
+                  {m.name}
+                </span>
+                <span className="sr-only">
+                  {m.attending ? 'confirmou presença' : 'não comparece'}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : (
+        <p className="text-lg leading-relaxed max-w-sm font-im-fell text-ink">
+          <span className="italic">{familyName}</span>, sua presença já está registrada.<br />
+          Será um prazer tê-los conosco.
+        </p>
+      )}
+
       <button
         onClick={onEdit}
         className="text-sm italic underline underline-offset-2 font-im-fell bg-transparent border-none cursor-pointer"

@@ -265,7 +265,11 @@ export default function SearchSection({
         {/* Already confirmed */}
         {appState === 'already_confirmed' && selectedGroup && (
           <div className="relative z-10">
-            <StateAlreadyConfirmed familyName={selectedGroup.familyName} onEdit={handleEdit} />
+            <StateAlreadyConfirmed
+              familyName={selectedGroup.familyName}
+              members={members}
+              onEdit={handleEdit}
+            />
           </div>
         )}
 
