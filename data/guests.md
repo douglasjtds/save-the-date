@@ -71,6 +71,7 @@
 ## Tujhon
 - Victor Jhon
 - Ana
+- Vera
 
 ## Négas
 - Victor Felipe
@@ -211,6 +212,9 @@
 
 ## Convidado de Honra
 - Padre Ednei
+
+## Convidado Ilustre
+- Padre Júlio
 
 ## outros, ver como vai ficar
 - Cantor
