@@ -210,6 +210,14 @@
 - Manoel do Gui
 - Cássia
 
+## Hector e Poli
+- Hector
+- Poliana
+
+## Victória e Bruno
+- Victória
+- Bruno
+
 ## Convidado de Honra
 - Padre Ednei
 
