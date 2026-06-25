@@ -49,11 +49,15 @@
 ## Família Flávia
 - Flávia Tertuliano
 - Gabriel Thiers
-- Filhos
+- Miguel
+- Gabriela
+- Isabel
+- Cecília
+- Nolan
 
 ## Família Nathalia
 - Nathália Tertuliano Caires
-- Mateus
+- Matheus
 
 ## Marco
 - Marco Antônio dos Santos
@@ -67,6 +71,13 @@
 ## Família Tio Marcelo
 - Marcelo
 - Beth
+
+## Família Marcelo Júnior - SP
+- Marcelo Junior
+- Marcella
+- Lavínia
+- Tia Wanda
+- Michele
 
 ## Tujhon
 - Victor Jhon
@@ -105,16 +116,9 @@
 ## Andrey Cotta
 - Andrey Cotta
 
-## Família Aline
-- Aline
-- Maria Clara
-- Ruan
-- Maria Tereza
-
-## Família Paulo
-- Paulo
-- Letícia
-- Sávio
+## Ana e Cliff
+- Ana Tereza
+- Mateus Clifford
 
 ## Família Victor Vieira
 - Victor Vieira
@@ -224,7 +228,10 @@
 ## Convidado Ilustre
 - Padre Júlio
 
-## outros, ver como vai ficar
-- Cantor
-- Fotógrafo
-- Acompanhante do fotógrafo
+## Convidado Célebre
+- Padre Luís
+
+## Fornecedores
+- Cantor Saymon
+- Gabriel Valadão
+- Tati
