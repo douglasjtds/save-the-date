@@ -33,7 +33,7 @@ export default function Hero({ deadline }: HeroProps) {
           om imensa alegria, convidamos você para celebrar conosco esse momento tão especial! Uma história de amor construída em Cristo, tornada ainda mais inesquecível pela presença de quem amamos.
         </p>
         <p>
-          Para conseguirmos fazer tudo com excelência, confirme sua presença até 02 de julho. A cerimônia e a recepção serão em Lagoa Santa. Horários e endereços exatos serão informados no convite entregue em mãos.
+          Para conseguirmos fazer tudo com excelência, confirme sua presença até 06 de julho. A cerimônia e a recepção serão em Lagoa Santa. Horários e endereços exatos serão informados no convite entregue em mãos.
         </p>
         <p>
           Ter você conosco é muito importante para nós!
