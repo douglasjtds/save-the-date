@@ -123,6 +123,9 @@
 - Ana Tereza
 - Mateus Clifford
 
+## Digs
+- Diego Morais
+
 ## Família Victor Vieira
 - Victor Vieira
 - Amanda
