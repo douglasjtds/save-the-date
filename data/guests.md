@@ -65,6 +65,7 @@
 ## Família Tia Verinha
 - Vera
 - Júnior
+- Ana
 - Isabela
 - Jéssica
 
@@ -76,7 +77,9 @@
 - Marcelo Junior
 - Marcella
 - Lavínia
-- Tia Wanda
+
+## tia Vanda e Michele
+- Tia Vanda
 - Michele
 
 ## Tujhon
