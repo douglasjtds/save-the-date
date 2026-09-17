@@ -123,8 +123,12 @@
 - Ana Tereza
 - Mateus Clifford
 
-## Digs
-- Diego Morais
+## João
+- João Gabriel Moreira
+- Bianca Yameê
+
+## Sérgio Evaristo
+- Sergin
 
 ## Família Victor Vieira
 - Victor Vieira
